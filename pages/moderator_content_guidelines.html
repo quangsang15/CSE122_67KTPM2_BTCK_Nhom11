@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="app-layout">
+      <nav class="top-nav">
+        <div class="top-nav-inner">
+          <a href="../index.html" class="nav-logo">CraftLink</a>
+          <div class="nav-links">
+            <a href="" class="nav-link">Dashboard</a>
+            <a href="" class="nav-link">Người dùng</a>
+            <a href="" class="nav-link">Danh mục</a>
+            <a href="" class="nav-link">Duyệt nội dung</a>
+            <a href="" class="nav-link">Báo cáo</a>
+          </div>
+          <div class="nav-actions">
+            <a href="" class="btn btn--sm">🔔</a>
+            <a href="" class="btn btn--sm"
+              ><span id="navUser">Tài khoản</span>
+            </a>
+          </div>
+        </div>
+      </nav>
+      <main class="main-content">
+        <div class="container">
+          <div class="page-header">
+            <div class="page-header-row">
+              <div>
+                <h1>Hướng dẫn nội dung</h1>
+                <p>Quy định và tiêu chuẩn cho sản phẩm trên CraftLink</p>
+              </div>
+              <button class="btn btn-primary" id="btnOpenCreate" type="button">
+                + Thêm hướng dẫn
+              </button>
+            </div>
+          </div>
+          <div class="empty-box">
+            <div class="big">📋</div>
+            <p class="muted">Chưa có hướng dẫn nào.</p>
+          </div>
+          <div id="list" class="list"></div>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="footer-grid">
+          <div>
+            <h4>Mua</h4>
+            <a href="">Dạo chợ</a><a href="">Đơn hàng</a>
+          </div>
+          <div>
+            <h4>Bán</h4>
+            <a href="">Quản lý sản phẩm</a><a href="">Mở gian hàng</a>
+          </div>
+          <div>
+            <h4>Duyệt & quản trị</h4>
+            <a href="">Hàng chờ duyệt</a><a href="">Trung tâm báo cáo</a
+            ><a href="">Hướng dẫn nội dung</a>
+          </div>
+          <div>
+            <h4>Tài khoản</h4>
+            <a href="">Hồ sơ</a><a href="">Đăng nhập</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          © 2025 CraftLink. Nền tảng kết nối người mua và thợ thủ công.
+        </div>
+      </footer>
+    </div>
+    <div class="modal-veil" id="editModal" hidden>
+      <div
+        class="modal-box"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="editTitle"
+      >
+        <div class="modal-head">
+          <h3 id="editTitle">Thêm hướng dẫn mới</h3>
+          <button class="btn btn--sm" id="btnCloseEdit" type="button">✕</button>
+        </div>
+        <div class="field">
+          <label class="lbl" for="fTitle">Tiêu đề *</label>
+          <input
+            class="input"
+            id="fTitle"
+            placeholder="VD: Quy định về hình ảnh sản phẩm"
+          />
+        </div>
+        <div class="field">
+          <label class="lbl" for="fCat">Danh mục</label>
+          <select class="input" id="fCat">
+            <option>Hình ảnh</option>
+            <option>Nội dung</option>
+            <option>Giá cả</option>
+            <option>Vận chuyển</option>
+            <option>Giao dịch</option>
+          </select>
+        </div>
+        <div class="field">
+          <label class="lbl" for="fBody">Nội dung *</label>
+          <textarea class="input" id="fBody" rows="5"></textarea>
+        </div>
+        <p class="form-err" id="formErr" hidden></p>
+        <div class="row row--end">
+          <button class="btn" id="btnCancelEdit" type="button">Hủy</button>
+          <button class="btn btn--primary" id="btnSave" type="button">
+            Lưu
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="modal-veil" id="delModal" hidden>
+      <div
+        class="modal-box"
+        role="alertdialog"
+        aria-modal="true"
+        aria-labelledby="delTitle"
+      >
+        <div class="modal-head">
+          <h3 id="delTitle">Xác nhận xóa</h3>
+          <button class="btn btn--sm" id="btnCloseDel" type="button">✕</button>
+        </div>
+        <p class="muted">Bạn chắc chắn muốn xóa? Không thể hoàn tác.</p>
+        <div class="row row--end">
+          <button class="btn" id="btnCancelDel" type="button">Hủy</button>
+          <button class="btn btn--danger" id="btnDoDel" type="button">
+            Xóa
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
