@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/responsive.css" />
+    <link rel="stylesheet" href="../css/reports.css" />
+  </head>
+  <body>
+    <div class="app-layout">
+      <nav class="top-nav">
+        <div class="top-nav-inner">
+          <a href="../index.html" class="nav-logo">CraftLink</a>
+          <div class="nav-links">
+            <a href="" class="nav-link">Dashboard</a>
+            <a href="" class="nav-link">Người dùng</a>
+            <a href="" class="nav-link">Danh mục</a>
+            <a href="" class="nav-link">Duyệt nội dung</a>
+            <a href="" class="nav-link active">Báo cáo</a>
+          </div>
+          <div class="nav-actions">
+            <a href="" class="btn btn--sm">🔔</a>
+            <a href="" class="btn btn--sm"
+              ><span id="navUser">Tài khoản</span>
+            </a>
+          </div>
+        </div>
+      </nav>
+      <main class="main-content">
+        <div class="container">
+          <div class="page-header">
+            <h1>Trung tâm báo cáo</h1>
+            <p id="reportSub" class="muted">2 báo cáo mới chưa xử lý</p>
+          </div>
+          <div
+            class="tabs"
+            id="reportTabs"
+            role="tablist"
+            aria-label="Trung tâm báo cáo"
+          >
+            <button class="tab active">Tất cả (4)</button>
+            <button class="tab">Mới (2)</button>
+            <button class="tab">Đang xử lý (1)</button>
+            <button class="tab">Xong (1)</button>
+          </div>
+          <div id="list" class="u-col-10">
+            <div class="card">
+              <div class="row row--between-start">
+                <div class="u-flex1">
+                  <div class="row u-mb6">
+                    <span class="u-fw600 u-fs13 u-primary">RPT-001</span
+                    ><span class="badge badge--open">Mới</span
+                    ><span class="muted u-fs13">19/03/2025</span>
+                  </div>
+                  <div class="u-fw600 u-mb4">
+                    Sản phẩm hàng nhái không phải thủ công
+                  </div>
+                  <div class="muted u-fs13">
+                    Báo cáo bởi: Nguyễn A - Đối tượng: Listing L-099
+                  </div>
+                </div>
+                <div>
+                  <button class="btn btn--primary btn--sm" type="button">
+                    Xử lý
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="row row--between-start">
+                <div class="u-flex1">
+                  <div class="row u-mb6">
+                    <span class="u-fw600 u-fs13 u-primary">RPT-002</span
+                    ><span class="badge badge--handling">Đang xử lý</span
+                    ><span class="muted u-fs13">17/03/2025</span>
+                  </div>
+                  <div class="u-fw600 u-mb4">
+                    Người bán không giao hàng sau khi nhận tiền
+                  </div>
+                  <div class="muted u-fs13">
+                    Báo cáo bởi: Lê B - Đối tượng: Maker M-042
+                  </div>
+                </div>
+                <div>
+                  <button class="btn btn--sm verdict-ok" type="button">
+                    Đóng báo cáo
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="row row--between-start">
+                <div class="u-flex1">
+                  <div class="row u-mb6">
+                    <span class="u-fw600 u-fs13 u-primary">RPT-003</span
+                    ><span class="badge badge--done">Xong</span
+                    ><span class="muted u-fs13">15/03/2025</span>
+                  </div>
+                  <div class="u-fw600 u-mb4">Hình ảnh sản phẩm giả mạo</div>
+                  <div class="muted u-fs13">
+                    Báo cáo bởi: Trần C - Đối tượng: Listing L-077
+                  </div>
+                </div>
+                <div><span class="ai-note">✅ Đã xong</span></div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="row row--between-start">
+                <div class="u-flex1">
+                  <div class="row u-mb6">
+                    <span class="u-fw600 u-fs13 u-primary">RPT-004</span
+                    ><span class="badge badge--open">Mới</span
+                    ><span class="muted u-fs13">10/03/2025</span>
+                  </div>
+                  <div class="u-fw600 u-mb4">
+                    Ngôn ngữ không phù hợp trong mô tả
+                  </div>
+                  <div class="muted u-fs13">
+                    Báo cáo bởi: Phạm D - Đối tượng: Listing L-033
+                  </div>
+                </div>
+                <div>
+                  <button class="btn btn--primary btn--sm" type="button">
+                    Xử lý
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="state-loading" hidden>
+            <div class="card skel skel-bar--mb"></div>
+          </div>
+          <div class="error-box" id="state-error" hidden>
+            <div class="big">⚠️</div>
+            <h3>Đã xảy ra lỗi</h3>
+            <p class="muted u-mb20">Không thể tải dữ liệu. Vui lòng thử lại.</p>
+            <button class="btn btn--primary" id="btnRetry" type="button">
+              Thử lại
+            </button>
+          </div>
+          <div class="empty-box" id="state-empty" hidden>
+            <div class="big">✅</div>
+            <p class="muted">Không có báo cáo nào trong mục này</p>
+          </div>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="footer-grid">
+          <div>
+            <h4>Mua</h4>
+            <a href="">Dạo chợ</a><a href="">Đơn hàng</a>
+          </div>
+          <div>
+            <h4>Bán</h4>
+            <a href="">Quản lý sản phẩm</a><a href="">Mở gian hàng</a>
+          </div>
+          <div>
+            <h4>Duyệt & quản trị</h4>
+            <a href="">Hàng chờ duyệt</a><a href="">Trung tâm báo cáo</a
+            ><a href="">Hướng dẫn nội dung</a>
+          </div>
+          <div>
+            <h4>Tài khoản</h4>
+            <a href="">Hồ sơ</a><a href="">Đăng nhập</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          © 2025 CraftLink. Nền tảng kết nối người mua và thợ thủ công.
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
