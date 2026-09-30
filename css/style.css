@@ -6,6 +6,8 @@
   --muted: #64748b;
   --card: #fff;
   --border: #e2e8f0;
+  --radius: 10px;
+  --shadow: 0 1px 6px rgba(30, 100, 255, 0.05);
 }
 
 * {
@@ -102,8 +104,12 @@ body {
 }
 
 .container {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
+}
+
+.u-mw800 {
+  max-width: 800px;
 }
 
 .page-header {
