@@ -177,3 +177,13 @@ body {
   border-top: 1px solid #334155;
   font-size: 12px;
 }
+
+.u-mb16 {
+  margin-bottom: 16px;
+}
+.cover-side {
+  position: relative;
+  max-width: 320px;
+  flex: 1;
+  min-width: 200px;
+}
