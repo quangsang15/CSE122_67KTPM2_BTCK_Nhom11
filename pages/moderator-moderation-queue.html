@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hàng chờ duyệt — CraftLink</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/category.css" />
+    <link rel="stylesheet" href="../css/reports.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+    <link rel="stylesheet" href="../css/queue.css" />
+  </head>
+  <body>
+    <div class="app-layout">
+      <nav class="top-nav">
+        <div class="top-nav-inner">
+          <a href="../index.html" class="nav-logo">CraftLink</a>
+          <div class="nav-links">
+            <a href="admin-platform-dashboard.html" class="nav-link"
+              >Dashboard</a
+            >
+            <a href="admin-user-management.html" class="nav-link">Người dùng</a>
+            <a href="admin-category-management.html" class="nav-link"
+              >Danh mục</a
+            >
+            <a href="moderator-moderation-queue.html" class="nav-link active"
+              >Duyệt nội dung</a
+            >
+            <a href="moderator-report-center.html" class="nav-link">Báo cáo</a>
+          </div>
+          <div class="nav-actions">
+            <a href="notifications.html" class="btn btn--sm">🔔</a>
+            <a href="profile.html" class="btn btn--sm"
+              ><span id="navUser">Tài khoản</span></a
+            >
+          </div>
+        </div>
+      </nav>
+      <main class="main-content">
+        <div class="container">
+          <div class="page-header">
+            <div class="page-head-row">
+              <div>
+                <h1>Hàng chờ duyệt nội dung</h1>
+                <p id="queueSub" class="muted"></p>
+              </div>
+              <div class="row" id="bulkBar" hidden>
+                <span class="muted u-fs13" id="selInfo">Đã chọn 0</span>
+                <button
+                  class="btn btn--primary btn--sm"
+                  id="btnBulkApprove"
+                  type="button"
+                >
+                  ✅ Duyệt hàng loạt
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="tabs"
+            id="queueTabs"
+            role="tablist"
+            aria-label="Trạng thái duyệt"
+          >
+            <button class="tab active" type="button">Chờ duyệt (3)</button>
+            <button class="tab" type="button">Đã duyệt (5)</button>
+            <button class="tab" type="button">Đã từ chối (1)</button>
+          </div>
+          <div id="state-loading" hidden>
+            <div class="card skel skel-bar--mb"></div>
+            <div class="card skel skel-bar"></div>
+          </div>
+          <div class="error-box" id="state-error" hidden>
+            <div class="big">⚠️</div>
+            <h3>Đã xảy ra lỗi</h3>
+            <p class="muted u-mb20">Không thể tải dữ liệu. Vui lòng thử lại.</p>
+            <button class="btn btn--primary" id="btnRetry" type="button">
+              Thử lại
+            </button>
+          </div>
+          <div class="empty-box" id="state-empty" hidden>
+            <div class="big">✅</div>
+            <p class="muted">Không còn bài nào ở đây.</p>
+          </div>
+          <div class="card media-crop" id="tableCard">
+            <div class="table-wrap">
+              <table class="table">
+                <thead>
+                  <tr id="headRow">
+                    <th>
+                      <input
+                        type="checkbox"
+                        id="checkAll"
+                        aria-label="Chọn tất cả"
+                      />
+                    </th>
+                    <th>Mã</th>
+                    <th>Sản phẩm</th>
+                    <th>Nghệ nhân</th>
+                    <th>Danh mục</th>
+                    <th>Trạng thái</th>
+                    <th>Hành động</th>
+                  </tr>
+                </thead>
+                <tbody id="rows">
+                  <tr>
+                    <td>
+                      <input
+                        type="checkbox"
+                        class="rowCheck"
+                        aria-label="Chọn bài"
+                      />
+                    </td>
+                    <td>LST-01</td>
+                    <td>Bình gốm hoa văn</td>
+                    <td>Nguyễn A</td>
+                    <td>Đồ gốm sứ</td>
+                    <td><span class="badge badge--pending">Chờ duyệt</span></td>
+                    <td>
+                      <button class="btn btn--primary btn--sm" type="button">
+                        Duyệt
+                      </button>
+                      <button class="btn btn--danger" type="button">
+                        Từ chối
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input
+                        type="checkbox"
+                        class="rowCheck"
+                        aria-label="Chọn bài"
+                      />
+                    </td>
+                    <td>LST-02</td>
+                    <td>Túi vải thêu</td>
+                    <td>Lê B</td>
+                    <td>Thủ công mỹ nghệ</td>
+                    <td><span class="badge badge--pending">Chờ duyệt</span></td>
+                    <td>
+                      <button class="btn btn--primary btn--sm" type="button">
+                        Duyệt
+                      </button>
+                      <button class="btn btn--danger" type="button">
+                        Từ chối
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input
+                        type="checkbox"
+                        class="rowCheck"
+                        aria-label="Chọn bài"
+                      />
+                    </td>
+                    <td>LST-03</td>
+                    <td>Mặt dây chuyền gỗ</td>
+                    <td>Trần C</td>
+                    <td>Đồ gỗ</td>
+                    <td><span class="badge badge--pending">Chờ duyệt</span></td>
+                    <td>
+                      <button class="btn btn--primary btn--sm" type="button">
+                        Duyệt
+                      </button>
+                      <button class="btn btn--danger" type="button">
+                        Từ chối
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="footer-grid">
+          <div>
+            <h4>Mua</h4>
+            <a href="buyer-marketplace.html">Dạo chợ</a
+            ><a href="buyer-orders.html">Đơn hàng</a>
+          </div>
+          <div>
+            <h4>Bán</h4>
+            <a href="maker-listing-management.html">Quản lý sản phẩm</a
+            ><a href="seller-register.html">Mở gian hàng</a>
+          </div>
+          <div>
+            <h4>Duyệt & quản trị</h4>
+            <a href="moderator-moderation-queue.html">Hàng chờ duyệt</a
+            ><a href="moderator-report-center.html">Trung tâm báo cáo</a
+            ><a href="moderator-content-guidelines.html">Hướng dẫn nội dung</a>
+          </div>
+          <div>
+            <h4>Tài khoản</h4>
+            <a href="profile.html">Hồ sơ</a><a href="login.html">Đăng nhập</a>
+          </div>
+        </div>
+        <div class="footer-bottom">© 2025 CraftLink.</div>
+      </footer>
+    </div>
+  </body>
+</html>
