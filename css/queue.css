@@ -1,0 +1,40 @@
+.u-fs13 {
+  font-size: 13px;
+}
+.skel-bar {
+  height: 72px;
+}
+.badge--pending {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.queue-card {
+  background: #f6f8fc;
+}
+.table th {
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.col-id {
+  font-weight: 600;
+  white-space: nowrap;
+}
+.btn-col {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.btn-col .btn {
+  justify-content: flex-start;
+}
+.u-fs13 {
+  font-size: 13px;
+}
+.skel-bar {
+  height: 72px;
+}
+.badge--pending {
+  background: #fef3c7;
+  color: #92400e;
+}
