@@ -4,6 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Platform Dashboard — CraftLink</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
     <link rel="stylesheet" href="../css/base/base.css" />
     <link rel="stylesheet" href="../css/components/style.css" />
     <link rel="stylesheet" href="../css/pages/dashboard.css" />
@@ -270,5 +278,31 @@
         </div>
       </footer>
     </div>
+
+    <nav class="bottom-nav" aria-label="Điều hướng chính">
+      <a
+        class="bottom-nav__link bottom-nav__link--active"
+        href="admin-platform-dashboard.html"
+      >
+        <i class="fa-solid fa-chart-line"></i>
+        <span>Dashboard</span>
+      </a>
+      <a class="bottom-nav__link" href="admin-user-management.html">
+        <i class="fa-solid fa-users"></i>
+        <span>Người dùng</span>
+      </a>
+      <a class="bottom-nav__link" href="admin-category-management.html">
+        <i class="fa-solid fa-folder"></i>
+        <span>Danh mục</span>
+      </a>
+      <a class="bottom-nav__link" href="moderator-moderation-queue.html">
+        <i class="fa-solid fa-clipboard"></i>
+        <span>Duyệt nội dung</span>
+      </a>
+      <a class="bottom-nav__link" href="moderator-report-center.html">
+        <i class="fa-solid fa-flag"></i>
+        <span>Báo cáo</span>
+      </a>
+    </nav>
   </body>
 </html>
