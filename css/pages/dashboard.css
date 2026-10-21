@@ -1,0 +1,104 @@
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.stat {
+  background: var(--card);
+  border: 1px solid #e6efff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 16px;
+}
+
+.stat small {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.stat b {
+  display: block;
+  font-size: 28px;
+  margin-top: 4px;
+}
+
+.stat-delta {
+  display: block;
+  margin-top: 6px;
+  font-size: 13px;
+  color: #16a34a;
+}
+
+.bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  height: 120px;
+}
+
+.bar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.bar i {
+  display: block;
+  width: 100%;
+  background: var(--primary);
+  border-radius: 4px 4px 0 0;
+  opacity: 0.6;
+}
+
+.bar:last-child i {
+  opacity: 1;
+}
+
+.bar span {
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.meter {
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.meter i {
+  display: block;
+  height: 100%;
+  border-radius: 3px;
+}
+
+.row-sep {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.media-h100 {
+  height: 100px;
+}
+
+.media-h280 {
+  height: 280px;
+}
+
+@media (max-width: 1024px) {
+  .stat-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .stat-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

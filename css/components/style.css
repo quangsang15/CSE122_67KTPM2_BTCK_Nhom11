@@ -285,6 +285,10 @@
   justify-content: center;
 }
 
+.row--between {
+  justify-content: space-between;
+}
+
 .row--between-start {
   justify-content: space-between;
   align-items: flex-start;
@@ -495,6 +499,10 @@
   margin-bottom: 8px;
 }
 
+.u-mb10 {
+  margin-bottom: 10px;
+}
+
 .u-mb16 {
   margin-bottom: 16px;
 }
@@ -525,6 +533,10 @@
 
 .u-fs13 {
   font-size: 13px;
+}
+
+.u-fs20 {
+  font-size: 20px;
 }
 
 .u-fs56 {
@@ -585,6 +597,10 @@
 
   .page-header-row {
     flex-direction: column;
+  }
+
+  .grid-2 {
+    grid-template-columns: 1fr;
   }
 }
 
