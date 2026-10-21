@@ -2,7 +2,6 @@
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  max-width: 1200px;
 }
 
 .main-content {
@@ -390,6 +389,16 @@
 .badge--pending {
   background: #fef3c7;
   color: #92400e;
+}
+
+.badge--rejected {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.badge--tag {
+  background: #dbeafe;
+  color: #1e49af;
 }
 
 .badge--open {
