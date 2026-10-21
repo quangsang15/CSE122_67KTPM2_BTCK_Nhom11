@@ -1,0 +1,24 @@
+﻿.queue-card {
+  background: #f6f8fc;
+}
+
+.col-id {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.btn-col {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.btn-col .btn {
+  justify-content: flex-start;
+}
+
+.rowCheck {
+  width: 16px;
+  height: 16px;
+}
+

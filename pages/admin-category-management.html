@@ -4,9 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="../css/responsive.css" />
-    <link rel="stylesheet" href="../css/category.css" />
+    <link rel="stylesheet" href="../css/base/base.css" />
+    <link rel="stylesheet" href="../css/components/style.css" />
   </head>
   <body>
     <div class="app-layout">
@@ -18,10 +17,10 @@
               >Dashboard</a
             >
             <a href="admin-user-management.html" class="nav-link">Người dùng</a>
-            <a href="admin-category-management.html" class="nav-link"
+            <a href="admin-category-management.html" class="nav-link active"
               >Danh mục</a
             >
-            <a href="moderator-moderation-queue.html" class="nav-link active"
+            <a href="moderator-moderation-queue.html" class="nav-link"
               >Duyệt nội dung</a
             >
             <a href="moderator-report-center.html" class="nav-link">Báo cáo</a>
@@ -29,7 +28,7 @@
           <div class="nav-actions">
             <a href="notifications.html" class="btn btn--sm">🔔</a>
             <a href="profile.html" class="btn btn--sm"
-              ><span id="navUser">Tài khoản</span></a
+              ><span id="navUser" class="nav-user">Tài khoản</span></a
             >
           </div>
         </div>
@@ -38,7 +37,7 @@
       <main class="main-content">
         <div class="container">
           <div class="page-header">
-            <div class="page-head-row">
+            <div class="page-header-row">
               <div>
                 <h1>Quản lý danh mục</h1>
                 <p id="catSub" class="muted"></p>
@@ -151,7 +150,9 @@
             <a href="profile.html">Hồ sơ</a><a href="login.html">Đăng nhập</a>
           </div>
         </div>
-        <div class="footer-bottom">© 2025 CraftLink.</div>
+        <div class="footer-bottom">
+          © 2026 CraftLink. Nền tảng kết nối người mua và thợ thủ công.
+        </div>
       </footer>
     </div>
     <div class="modal-veil" id="catModal" hidden>
