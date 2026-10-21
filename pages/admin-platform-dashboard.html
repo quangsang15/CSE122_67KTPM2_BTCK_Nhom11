@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Platform Dashboard — CraftLink</title>
+    <link rel="stylesheet" href="../css/base/base.css" />
+    <link rel="stylesheet" href="../css/components/style.css" />
+    <link rel="stylesheet" href="../css/pages/dashboard.css" />
+  </head>
+  <body>
+    <div class="app-layout">
+      <nav class="top-nav">
+        <div class="top-nav-inner">
+          <a href="../index.html" class="nav-logo">CraftLink</a>
+          <div class="nav-links">
+            <a href="admin-platform-dashboard.html" class="nav-link active"
+              >Dashboard</a
+            >
+            <a href="admin-user-management.html" class="nav-link">Người dùng</a>
+            <a href="admin-category-management.html" class="nav-link"
+              >Danh mục</a
+            >
+            <a href="moderator-moderation-queue.html" class="nav-link"
+              >Duyệt nội dung</a
+            >
+            <a href="moderator-report-center.html" class="nav-link">Báo cáo</a>
+          </div>
+          <div class="nav-actions">
+            <a href="notifications.html" class="btn btn--sm" aria-label="Thông báo"
+              >🔔</a
+            >
+            <a href="profile.html" class="btn btn--sm"
+              ><span id="navUser" class="nav-user">Tài khoản</span></a
+            >
+          </div>
+        </div>
+      </nav>
+
+      <main class="main-content">
+        <div class="container">
+          <div class="page-header">
+            <div class="page-header-row">
+              <div>
+                <h1>Platform Dashboard</h1>
+                <p>Tổng quan hoạt động nền tảng — tháng 3/2025</p>
+              </div>
+              <a
+                href="admin-platform-dashboard.html?fail=1"
+                class="btn btn--sm btn--danger-outline"
+                >Demo lỗi</a
+              >
+            </div>
+          </div>
+
+          <div id="state-loading" hidden>
+            <div class="stat-grid">
+              <div class="card skel media-h100"></div>
+              <div class="card skel media-h100"></div>
+              <div class="card skel media-h100"></div>
+              <div class="card skel media-h100"></div>
+            </div>
+            <div class="card skel media-h280"></div>
+          </div>
+
+          <div class="error-box" id="state-error" hidden>
+            <div class="big">⚠️</div>
+            <h3>Đã xảy ra lỗi</h3>
+            <p class="muted u-mb20">Không thể tải dữ liệu. Vui lòng thử lại.</p>
+            <button class="btn btn--primary" id="btnRetry" type="button">
+              Thử lại
+            </button>
+          </div>
+
+          <div id="dashBody">
+            <div class="stat-grid">
+              <div class="stat">
+                <div class="row row--between">
+                  <small>Tổng doanh thu tháng</small>
+                  <span class="u-fs20">💰</span>
+                </div>
+                <b>₫487.2M</b>
+                <span class="stat-delta">+12.4% so với tháng trước</span>
+              </div>
+              <div class="stat">
+                <div class="row row--between">
+                  <small>Đơn hàng mới</small>
+                  <span class="u-fs20">📦</span>
+                </div>
+                <b>1,284</b>
+                <span class="stat-delta">+8.7% so với tháng trước</span>
+              </div>
+              <div class="stat">
+                <div class="row row--between">
+                  <small>Nghệ nhân hoạt động</small>
+                  <span class="u-fs20">🎨</span>
+                </div>
+                <b>2,419</b>
+                <span class="stat-delta">+3.2% so với tháng trước</span>
+              </div>
+              <div class="stat">
+                <div class="row row--between">
+                  <small>Người mua mới</small>
+                  <span class="u-fs20">👥</span>
+                </div>
+                <b>876</b>
+                <span class="stat-delta">+15.1% so với tháng trước</span>
+              </div>
+            </div>
+
+            <div class="grid-2 u-mb20">
+              <div class="card">
+                <h3 class="u-mb16">Doanh thu 6 tháng gần nhất</h3>
+                <div class="bars">
+                  <div class="bar">
+                    <i style="height: 58%"></i>
+                    <span>T10</span>
+                  </div>
+                  <div class="bar">
+                    <i style="height: 66%"></i>
+                    <span>T11</span>
+                  </div>
+                  <div class="bar">
+                    <i style="height: 74%"></i>
+                    <span>T12</span>
+                  </div>
+                  <div class="bar">
+                    <i style="height: 69%"></i>
+                    <span>T13</span>
+                  </div>
+                  <div class="bar">
+                    <i style="height: 83%"></i>
+                    <span>T14</span>
+                  </div>
+                  <div class="bar">
+                    <i style="height: 92%"></i>
+                    <span>T15</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <h3 class="u-mb16">Phân bổ theo danh mục</h3>
+                <div class="u-mb10">
+                  <div class="row row--between u-mb4 u-fs13">
+                    <span>Đồ gốm</span>
+                    <b>842</b>
+                  </div>
+                  <div class="meter">
+                    <i style="width: 100%; background: #2563eb"></i>
+                  </div>
+                </div>
+                <div class="u-mb10">
+                  <div class="row row--between u-mb4 u-fs13">
+                    <span>Tranh vẽ tay</span>
+                    <b>508</b>
+                  </div>
+                  <div class="meter">
+                    <i style="width: 60%; background: #7c3aed"></i>
+                  </div>
+                </div>
+                <div class="u-mb10">
+                  <div class="row row--between u-mb4 u-fs13">
+                    <span>Thủ pháp</span>
+                    <b>321</b>
+                  </div>
+                  <div class="meter">
+                    <i style="width: 38%; background: #059669"></i>
+                  </div>
+                </div>
+                <div class="u-mb10">
+                  <div class="row row--between u-mb4 u-fs13">
+                    <span>Trang sức</span>
+                    <b>389</b>
+                  </div>
+                  <div class="meter">
+                    <i style="width: 46%; background: #d97706"></i>
+                  </div>
+                </div>
+                <div class="u-mb10">
+                  <div class="row row--between u-mb4 u-fs13">
+                    <span>Đồ da</span>
+                    <b>276</b>
+                  </div>
+                  <div class="meter">
+                    <i style="width: 33%; background: #db2777"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card media-crop">
+              <div class="row-sep"><h3>Đơn hàng gần đây</h3></div>
+              <div class="table-wrap">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Mã đơn</th>
+                      <th>Thợ</th>
+                      <th>Giá trị</th>
+                      <th>Trạng thái</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="u-fw500 u-primary">ORD-2041</td>
+                      <td>Nguyễn Văn An</td>
+                      <td class="u-fw600">₫2.400.000</td>
+                      <td><span class="badge badge--done">Xong</span></td>
+                    </tr>
+                    <tr>
+                      <td class="u-fw500 u-primary">ORD-2040</td>
+                      <td>Lan Hương</td>
+                      <td class="u-fw600">₫1.150.000</td>
+                      <td><span class="badge badge--handling">Đang làm</span></td>
+                    </tr>
+                    <tr>
+                      <td class="u-fw500 u-primary">ORD-2039</td>
+                      <td>Quốc Hùng</td>
+                      <td class="u-fw600">₫860.000</td>
+                      <td><span class="badge badge--pending">Chờ duyệt</span></td>
+                    </tr>
+                    <tr>
+                      <td class="u-fw500 u-primary">ORD-2038</td>
+                      <td>Trần Thị Bích</td>
+                      <td class="u-fw600">₫3.200.000</td>
+                      <td><span class="badge badge--done">Xong</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="card u-mt16">
+              <b>💡 Nhận xét nhanh:</b>
+              <span class="muted"
+                >12 yêu cầu đang chờ báo giá — nghệ nhân nên trả lời trong 24 giờ; 7 món
+                chờ duyệt cần xem.</span
+              >
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="footer-grid">
+          <div>
+            <h4>Mua</h4>
+            <a href="buyer-marketplace.html">Dạo chợ</a
+            ><a href="buyer-orders.html">Đơn hàng</a>
+          </div>
+          <div>
+            <h4>Bán</h4>
+            <a href="maker-listing-management.html">Quản lý sản phẩm</a
+            ><a href="seller-register.html">Mở gian hàng</a>
+          </div>
+          <div>
+            <h4>Duyệt &amp; quản trị</h4>
+            <a href="moderator-moderation-queue.html">Hàng chờ duyệt</a
+            ><a href="moderator-report-center.html">Trung tâm báo cáo</a
+            ><a href="moderator-content-guidelines.html">Hướng dẫn nội dung</a>
+          </div>
+          <div>
+            <h4>Tài khoản</h4>
+            <a href="profile.html">Hồ sơ</a><a href="login.html">Đăng nhập</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          © 2026 CraftLink. Nền tảng kết nối người mua và thợ thủ công.
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
