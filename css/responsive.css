@@ -12,6 +12,9 @@
   .main-content {
     padding: 24px 16px;
   }
+  .plans {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 600px) {
