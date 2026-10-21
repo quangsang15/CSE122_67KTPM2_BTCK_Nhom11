@@ -12,10 +12,9 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="../css/reports.css" />
-    <link rel="stylesheet" href="../css/seller.css" />
-    <link rel="stylesheet" href="../css/responsive.css" />
+    <link rel="stylesheet" href="../css/base/base.css" />
+    <link rel="stylesheet" href="../css/components/style.css" />
+    <link rel="stylesheet" href="../css/pages/seller.css" />
   </head>
   <body>
     <div class="app-layout">
@@ -31,7 +30,7 @@
           <div class="nav-actions">
             <a href="notifications.html" class="btn btn--sm">🔔</a>
             <a href="profile.html" class="btn btn--sm"
-              ><span id="navUser">Tài khoản</span></a
+              ><span id="navUser" class="nav-user">Tài khoản</span></a
             >
           </div>
         </div>
@@ -155,19 +154,19 @@
                 </p>
                 <p class="muted u-fs13" id="paySummary">Tổng: 249.000₫</p>
                 <p class="form-err" id="formErr" role="alert" hidden></p>
-                <div class="row mt-8">
+                <div class="row u-mt8">
                   <button class="btn btn--primary" id="btnPay" type="button">
                     Thanh toán &amp; mở gian hàng
                   </button>
                   <a href="buyer-marketplace.html" class="btn">Để sau</a>
                 </div>
-                <p class="muted mt-8" id="payLoading" hidden>
+                <p class="muted u-mt8" id="payLoading" hidden>
                   <span class="spinner icon-18"></span> Đang xử lý thanh toán mock...
                 </p>
               </div>
             </div>
 
-            <div class="card mt-16 empty-hero" id="state-success" hidden>
+            <div class="card u-mt16 empty-hero" id="state-success" hidden>
               <div class="u-fs56 u-mb16">🎉</div>
               <h2 class="u-mb8">Đăng ký thành công!</h2>
               <p class="muted u-mb24">
