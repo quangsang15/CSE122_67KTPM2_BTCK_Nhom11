@@ -1,0 +1,67 @@
+[
+  {
+    "id": "LST-01",
+    "title": "Bình gốm hoa văn",
+    "maker": "Nguyễn A",
+    "category": "Đồ gốm sứ",
+    "price": 890000,
+    "rating": 4.8,
+    "status": "pending",
+    "images": [
+      "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Bookcase-saam_1966.11.7.jpg/960px-Bookcase-saam_1966.11.7.jpg"
+    ],
+    "customOptions": ["khắc tên", "kích thước"]
+  },
+  {
+    "id": "LST-02",
+    "title": "Túi vải thêu",
+    "maker": "Lê B",
+    "category": "Thủ công mỹ nghệ",
+    "price": 350000,
+    "rating": 4.5,
+    "status": "pending",
+    "images": [
+      "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/Girl_in_chibi_style.svg/960px-Girl_in_chibi_style.svg.png"
+    ],
+    "customOptions": ["khung", "file số"]
+  },
+  {
+    "id": "LST-03",
+    "title": "Mặt dây chuyền gỗ",
+    "maker": "Trần C",
+    "category": "Đồ gỗ",
+    "price": 1200000,
+    "rating": 4.9,
+    "status": "active",
+    "images": [
+      "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Bureau_table_%28desk%29_MET_DP-14204-113.jpg/960px-Bureau_table_%28desk%29_MET_DP-14204-113.jpg"
+    ],
+    "customOptions": ["màu sơn", "kích thước", "khắc chữ"]
+  },
+  {
+    "id": "LST-04",
+    "title": "Cốc gốm vẽ tay",
+    "maker": "Phạm D",
+    "category": "Quà tặng",
+    "price": 450000,
+    "rating": 4.2,
+    "status": "rejected",
+    "images": [
+      "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/02024_1733_ceramic_mugs.jpg/960px-02024_1733_ceramic_mugs.jpg"
+    ],
+    "customOptions": ["chất liệu", "in tên"]
+  },
+  {
+    "id": "LST-05",
+    "title": "Đèn treo bamboo",
+    "maker": "Hoàng E",
+    "category": "Đèn trần",
+    "price": 750000,
+    "rating": 4.6,
+    "status": "pending",
+    "images": [
+      "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Table_lamp_MET_DP-167220-004.jpg/960px-Table_lamp_MET_DP-167220-004.jpg"
+    ],
+    "customOptions": ["mùi", "kích thước"]
+  }
+]
