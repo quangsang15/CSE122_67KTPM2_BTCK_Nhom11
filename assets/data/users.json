@@ -1,0 +1,56 @@
+[
+  {
+    "id": "u1",
+    "name": "Nguyễn Văn An",
+    "email": "an@gmail.com",
+    "role": "buyer",
+    "status": "active",
+    "joined": "15/01/2025",
+    "orders": 12
+  },
+  {
+    "id": "u2",
+    "name": "Lan Hương",
+    "email": "lh@craftlink.vn",
+    "role": "maker",
+    "status": "active",
+    "joined": "10/12/2024",
+    "orders": 95
+  },
+  {
+    "id": "u3",
+    "name": "Quốc Hùng",
+    "email": "qh@craftlink.vn",
+    "role": "maker",
+    "status": "disabled",
+    "joined": "05/11/2024",
+    "orders": 23
+  },
+  {
+    "id": "u4",
+    "name": "Trần Thị Bích",
+    "email": "bich@gmail.com",
+    "role": "buyer",
+    "status": "active",
+    "joined": "20/02/2025",
+    "orders": 5
+  },
+  {
+    "id": "u5",
+    "name": "Moderator 1",
+    "email": "mod1@craftlink.vn",
+    "role": "moderator",
+    "status": "active",
+    "joined": "01/10/2024",
+    "orders": 0
+  },
+  {
+    "id": "u6",
+    "name": "Admin Chính",
+    "email": "admin@craftlink.vn",
+    "role": "admin",
+    "status": "active",
+    "joined": "01/01/2024",
+    "orders": 0
+  }
+]
