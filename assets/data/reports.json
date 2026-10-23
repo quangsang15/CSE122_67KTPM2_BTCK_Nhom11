@@ -1,7 +1,47 @@
 [
-  {"id":"RPT-001","targetType":"listing","targetId":"L-099","reason":"Sản phẩm hàng nhái không phải thủ công","status":"open","reportedBy":"Nguyễn A","date":"19/03/2025"},
-  {"id":"RPT-002","targetType":"maker","targetId":"M-042","reason":"Người bán không giao hàng sau khi nhận tiền","status":"handling","reportedBy":"Lê B","date":"17/03/2025"},
-  {"id":"RPT-003","targetType":"listing","targetId":"L-077","reason":"Hình ảnh sản phẩm giả mạo","status":"done","reportedBy":"Trần C","date":"15/03/2025"},
-  {"id":"RPT-004","targetType":"listing","targetId":"L-033","reason":"Ngôn ngữ không phù hợp trong mô tả","status":"open","reportedBy":"Phạm D","date":"10/03/2025"},
-  {"id":"RPT-005","targetType":"listing","targetId":"L-011","reason":"Giá bán quá cao so với chất lượng","status":"handling","reportedBy":"Hoàng E","date":"08/03/2025"}
+  {
+    "id": "RPT-001",
+    "targetType": "listing",
+    "targetId": "L-099",
+    "reason": "Sản phẩm hàng nhái không phải thủ công",
+    "status": "open",
+    "reportedBy": "Nguyễn A",
+    "date": "19/03/2025"
+  },
+  {
+    "id": "RPT-002",
+    "targetType": "maker",
+    "targetId": "M-042",
+    "reason": "Người bán không giao hàng sau khi nhận tiền",
+    "status": "handling",
+    "reportedBy": "Lê B",
+    "date": "17/03/2025"
+  },
+  {
+    "id": "RPT-003",
+    "targetType": "listing",
+    "targetId": "L-077",
+    "reason": "Hình ảnh sản phẩm giả mạo",
+    "status": "done",
+    "reportedBy": "Trần C",
+    "date": "15/03/2025"
+  },
+  {
+    "id": "RPT-004",
+    "targetType": "listing",
+    "targetId": "L-033",
+    "reason": "Ngôn ngữ không phù hợp trong mô tả",
+    "status": "open",
+    "reportedBy": "Phạm D",
+    "date": "10/03/2025"
+  },
+  {
+    "id": "RPT-005",
+    "targetType": "listing",
+    "targetId": "L-011",
+    "reason": "Giá bán quá cao so với chất lượng",
+    "status": "handling",
+    "reportedBy": "Hoàng E",
+    "date": "08/03/2025"
+  }
 ]
