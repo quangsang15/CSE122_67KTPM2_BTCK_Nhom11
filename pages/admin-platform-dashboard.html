@@ -35,7 +35,10 @@
             <a href="moderator-report-center.html" class="nav-link">Báo cáo</a>
           </div>
           <div class="nav-actions">
-            <a href="notifications.html" class="btn btn--sm" aria-label="Thông báo"
+            <a
+              href="notifications.html"
+              class="btn btn--sm"
+              aria-label="Thông báo"
               >🔔</a
             >
             <a href="profile.html" class="btn btn--sm"
@@ -81,7 +84,7 @@
           </div>
 
           <div id="dashBody">
-            <div class="stat-grid">
+            <div class="stat-grid" id="stats">
               <div class="stat">
                 <div class="row row--between">
                   <small>Tổng doanh thu tháng</small>
@@ -119,7 +122,7 @@
             <div class="grid-2 u-mb20">
               <div class="card">
                 <h3 class="u-mb16">Doanh thu 6 tháng gần nhất</h3>
-                <div class="bars">
+                <div class="bars" id="revBars">
                   <div class="bar">
                     <i style="height: 58%"></i>
                     <span>T10</span>
@@ -149,51 +152,7 @@
 
               <div class="card">
                 <h3 class="u-mb16">Phân bổ theo danh mục</h3>
-                <div class="u-mb10">
-                  <div class="row row--between u-mb4 u-fs13">
-                    <span>Đồ gốm</span>
-                    <b>842</b>
-                  </div>
-                  <div class="meter">
-                    <i style="width: 100%; background: #2563eb"></i>
-                  </div>
-                </div>
-                <div class="u-mb10">
-                  <div class="row row--between u-mb4 u-fs13">
-                    <span>Tranh vẽ tay</span>
-                    <b>508</b>
-                  </div>
-                  <div class="meter">
-                    <i style="width: 60%; background: #7c3aed"></i>
-                  </div>
-                </div>
-                <div class="u-mb10">
-                  <div class="row row--between u-mb4 u-fs13">
-                    <span>Thủ pháp</span>
-                    <b>321</b>
-                  </div>
-                  <div class="meter">
-                    <i style="width: 38%; background: #059669"></i>
-                  </div>
-                </div>
-                <div class="u-mb10">
-                  <div class="row row--between u-mb4 u-fs13">
-                    <span>Trang sức</span>
-                    <b>389</b>
-                  </div>
-                  <div class="meter">
-                    <i style="width: 46%; background: #d97706"></i>
-                  </div>
-                </div>
-                <div class="u-mb10">
-                  <div class="row row--between u-mb4 u-fs13">
-                    <span>Đồ da</span>
-                    <b>276</b>
-                  </div>
-                  <div class="meter">
-                    <i style="width: 33%; background: #db2777"></i>
-                  </div>
-                </div>
+                <div id="catBars"></div>
               </div>
             </div>
 
@@ -209,7 +168,7 @@
                       <th>Trạng thái</th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody id="recentRows">
                     <tr>
                       <td class="u-fw500 u-primary">ORD-2041</td>
                       <td>Nguyễn Văn An</td>
@@ -220,13 +179,17 @@
                       <td class="u-fw500 u-primary">ORD-2040</td>
                       <td>Lan Hương</td>
                       <td class="u-fw600">₫1.150.000</td>
-                      <td><span class="badge badge--handling">Đang làm</span></td>
+                      <td>
+                        <span class="badge badge--handling">Đang làm</span>
+                      </td>
                     </tr>
                     <tr>
                       <td class="u-fw500 u-primary">ORD-2039</td>
                       <td>Quốc Hùng</td>
                       <td class="u-fw600">₫860.000</td>
-                      <td><span class="badge badge--pending">Chờ duyệt</span></td>
+                      <td>
+                        <span class="badge badge--pending">Chờ duyệt</span>
+                      </td>
                     </tr>
                     <tr>
                       <td class="u-fw500 u-primary">ORD-2038</td>
@@ -241,9 +204,9 @@
 
             <div class="card u-mt16">
               <b>💡 Nhận xét nhanh:</b>
-              <span class="muted"
-                >12 yêu cầu đang chờ báo giá — nghệ nhân nên trả lời trong 24 giờ; 7 món
-                chờ duyệt cần xem.</span
+              <span class="muted" id="insight"
+                >12 yêu cầu đang chờ báo giá — nghệ nhân nên trả lời trong 24
+                giờ; 7 món chờ duyệt cần xem.</span
               >
             </div>
           </div>
@@ -304,5 +267,6 @@
         <span>Báo cáo</span>
       </a>
     </nav>
+    <script src="../js/pages/admin-platform-dashboard.js"></script>
   </body>
 </html>
