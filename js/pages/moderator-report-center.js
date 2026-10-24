@@ -1,4 +1,5 @@
 (() => {
+  Guard.require("moderator", "admin");
   const $ = (id) => document.getElementById(id);
   const TABS = [["all", "Tất cả"], ["open", "Mới"], ["handling", "Đang xử lý"], ["done", "Xong"]];
   let reports = [];
