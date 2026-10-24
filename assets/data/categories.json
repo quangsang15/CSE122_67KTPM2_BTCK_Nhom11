@@ -1,0 +1,8 @@
+[
+  { "id": "c1", "name": "Đồ gốm sứ", "parent": null, "archived": false },
+  { "id": "c2", "name": "Thủ công mỹ nghệ", "parent": null, "archived": false },
+  { "id": "c3", "name": "Đồ gỗ", "parent": null, "archived": false },
+  { "id": "c4", "name": "Quà tặng", "parent": null, "archived": false },
+  { "id": "c5", "name": "Đèn trần", "parent": null, "archived": false },
+  { "id": "c6", "name": "Thổ cẩm", "parent": null, "archived": true }
+]
