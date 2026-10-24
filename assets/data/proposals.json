@@ -1,0 +1,26 @@
+[
+  {
+    "id": "PRO-001",
+    "makerId": "u1",
+    "briefId": "BRF-001",
+    "title": "Bàn gỗ sồi tự nhiên",
+    "status": "pending",
+    "createdAt": "2025-03-15"
+  },
+  {
+    "id": "PRO-002",
+    "makerId": "u2",
+    "briefId": "BRF-002",
+    "title": "Túi da realistic",
+    "status": "pending",
+    "createdAt": "2025-03-14"
+  },
+  {
+    "id": "PRO-003",
+    "makerId": "u3",
+    "briefId": "BRF-003",
+    "title": "Đèn treo bamboo hiện đại",
+    "status": "revision",
+    "createdAt": "2025-03-13"
+  }
+]

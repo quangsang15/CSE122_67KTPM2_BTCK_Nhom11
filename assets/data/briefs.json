@@ -1,0 +1,30 @@
+[
+  {
+    "id": "BRF-001",
+    "buyerId": "u1",
+    "title": "Bàn gỗ cửa phòng ngồi",
+    "status": "sent",
+    "createdAt": "2025-03-14"
+  },
+  {
+    "id": "BRF-002",
+    "buyerId": "u2",
+    "title": "Túi xách da tay làm thủ công",
+    "status": "sent",
+    "createdAt": "2025-03-13"
+  },
+  {
+    "id": "BRF-003",
+    "buyerId": "u3",
+    "title": "Đèn treo bamboo",
+    "status": "sent",
+    "createdAt": "2025-03-12"
+  },
+  {
+    "id": "BRF-004",
+    "buyerId": "u1",
+    "title": "Mặt dây chuyền gỗ",
+    "status": "open",
+    "createdAt": "2025-03-11"
+  }
+]
