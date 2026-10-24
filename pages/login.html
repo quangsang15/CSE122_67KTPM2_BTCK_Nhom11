@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng nhập — CraftLink</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
+    <link rel="stylesheet" href="../css/base/base.css" />
+    <link rel="stylesheet" href="../css/components/style.css" />
+  </head>
+  <body>
+    <div class="app-layout">
+      <main class="main-content">
+        <div class="container u-mw800">
+          <div class="card" style="max-width: 420px; margin: 40px auto">
+            <h1>Đăng nhập</h1>
+            <p class="muted u-mb16">
+              Demo: email bắt đầu bằng mod/admin/maker/buyer.
+            </p>
+            <form id="loginForm">
+              <div class="field">
+                <label class="lbl" for="email">Email</label>
+                <input
+                  class="input"
+                  id="email"
+                  type="email"
+                  placeholder="mod@craftlink.vn"
+                />
+                <p class="form-err" id="emailErr" hidden></p>
+              </div>
+              <div class="field">
+                <label class="lbl" for="pw">Mật khẩu</label>
+                <input
+                  class="input"
+                  id="pw"
+                  type="password"
+                  placeholder="••••••"
+                />
+                <p class="form-err" id="pwErr" hidden></p>
+              </div>
+              <div class="row u-mt8">
+                <button class="btn btn--primary" id="btnLogin" type="submit">
+                  Đăng nhập
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="../js/modules/guard.js"></script>
+    <script src="../js/pages/login.js"></script>
+  </body>
+</html>
