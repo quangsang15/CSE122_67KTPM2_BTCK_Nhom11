@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hồ sơ cá nhân — CraftLink</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../css/base/base.css" />
+  <link rel="stylesheet" href="../css/components/style.css" />
+  <link rel="stylesheet" href="../css/pages/profile.css" />
+
+</head>
+<body>
+<div class="app-layout">
+  <nav class="top-nav" aria-label="Điều hướng chính">
+    <div class="top-nav-inner">
+      <a href="../index.html" class="nav-logo">CraftLink</a>
+      <div class="nav-links">
+        <a href="../index.html" class="nav-link">Trang chủ</a>
+        <a href="buyer-marketplace.html" class="nav-link">Dạo chợ</a>
+        <a href="buyer-orders.html" class="nav-link">Đơn hàng</a>
+        <a href="maker-brief-inbox.html" class="nav-link">Gian hàng</a>
+      </div>
+      <div class="nav-actions">
+        <a href="notifications.html" class="btn btn--sm" aria-label="Thông báo">🔔</a>
+        <a href="profile.html" class="btn btn--sm"><span id="navUser" class="nav-user">Tài khoản</span></a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main-content">
+    <div class="container u-mw800">
+      <div class="page-header"><h1>Hồ sơ cá nhân</h1><p>Quản lý thông tin tài khoản của bạn</p></div>
+      <div id="state-loading"><div class="card skel media-h160"></div></div>
+      <div class="error-box" id="state-error" hidden>
+        <div class="big">⚠️</div><h3>Đã xảy ra lỗi</h3>
+        <p class="muted u-mb20">Không thể tải dữ liệu. Vui lòng thử lại.</p>
+        <button class="btn btn--primary" id="btnRetry" type="button">Thử lại</button>
+      </div>
+      <div class="profile-grid" id="profileBody" hidden>
+        <div class="u-col-16">
+          <div class="card u-text-center">
+            <div class="avatar avatar-xl" id="avatarBig">?</div>
+            <div class="u-fw600 u-mb4" id="pName"></div>
+            <span class="badge badge--active" id="pStatus">Đang hoạt động</span>
+            <div class="muted u-fs13 u-mt8" id="pSince"></div>
+          </div>
+          <div class="card">
+            <div class="table-head-note">Thống kê</div>
+            <div id="pStats"></div>
+          </div>
+        </div>
+        <div class="u-col-16">
+          <div class="card">
+            <div class="row row--between-mb16">>
+              <h3>Thông tin cá nhân</h3>
+              <button class="btn btn--sm" id="btnEdit" type="button">Chỉnh sửa</button>
+            </div>
+            <div id="infoView"></div>
+            <div id="infoForm" hidden>
+              <div class="field"><label class="lbl" for="fName">Họ và tên</label><input class="input" id="fName" /></div>
+              <div class="field"><label class="lbl" for="fBio">Giới thiệu</label><textarea class="input" id="fBio" rows="3" maxlength="200"></textarea></div>
+              <p class="form-err" id="formErr" role="alert" hidden></p>
+              <div class="row">
+                <button class="btn btn--primary btn--sm" id="btnSave" type="button">Lưu</button>
+                <button class="btn btn--sm" id="btnCancel" type="button">Hủy</button>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <h3 class="u-mb16">Đơn hàng gần đây</h3>
+            <div class="table-wrap"><table class="table">
+              <thead><tr><th scope="col">Mã đơn</th><th scope="col">Sản phẩm</th><th scope="col">Trạng thái</th><th scope="col">Giá</th></tr></thead>
+              <tbody id="recentRows"></tbody>
+            </table></div>
+          </div>
+          <div class="row">
+            <a href="seller-register.html" class="btn btn--sm" id="linkSell">Bán hàng</a>
+            <button class="btn btn--sm" id="btnLogout" type="button">Đăng xuất</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div><h4>Mua</h4><a href="buyer-marketplace.html">Dạo chợ</a><a href="buyer-custom-brief.html">Đặt riêng</a><a href="buyer-orders.html">Đơn hàng</a></div>
+      <div><h4>Bán</h4><a href="maker-listing-management.html">Quản lý sản phẩm</a><a href="maker-brief-inbox.html">Hộp thư brief</a><a href="maker-proposal-editor.html">Đề xuất</a><a href="seller-register.html">Mở gian hàng</a></div>
+      <div><h4>Duyệt &amp; quản trị</h4><a href="moderator-moderation-queue.html">Hàng chờ duyệt</a><a href="moderator-report-center.html">Trung tâm báo cáo</a><a href="moderator-content-guidelines.html">Hướng dẫn nội dung</a><a href="admin-platform-dashboard.html">Dashboard Admin</a></div>
+      <div><h4>Tài khoản</h4><a href="profile.html">Hồ sơ</a><a href="settings.html">Cài đặt</a><a href="notifications.html">Thông báo</a><a href="login.html">Đăng nhập</a></div>
+    </div>
+    <div class="footer-bottom">© 2025 CraftLink. Nền tảng kết nối người mua và thợ thủ công.</div>
+  </footer>
+</div>
+
+<script src="../js/modules/escape.js"></script>
+<script src="../js/api.js"></script>
+<script src="../js/modules/ui-state.js"></script>
+<script src="../js/modules/bottom-nav.js"></script>
+<script src="../js/pages/profile.js"></script>
+</body>
+</html>
