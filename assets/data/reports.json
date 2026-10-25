@@ -6,7 +6,7 @@
     "reason": "Sản phẩm hàng nhái không phải thủ công",
     "status": "open",
     "reportedBy": "Nguyễn A",
-    "date": "19/03/2025"
+    "date": "19/10/2026"
   },
   {
     "id": "RPT-002",
@@ -15,7 +15,7 @@
     "reason": "Người bán không giao hàng sau khi nhận tiền",
     "status": "handling",
     "reportedBy": "Lê B",
-    "date": "17/03/2025"
+    "date": "17/10/2026"
   },
   {
     "id": "RPT-003",
@@ -24,7 +24,7 @@
     "reason": "Hình ảnh sản phẩm giả mạo",
     "status": "done",
     "reportedBy": "Trần C",
-    "date": "15/03/2025"
+    "date": "15/10/2026"
   },
   {
     "id": "RPT-004",
@@ -33,7 +33,7 @@
     "reason": "Ngôn ngữ không phù hợp trong mô tả",
     "status": "open",
     "reportedBy": "Phạm D",
-    "date": "10/03/2025"
+    "date": "10/10/2026"
   },
   {
     "id": "RPT-005",
@@ -42,6 +42,6 @@
     "reason": "Giá bán quá cao so với chất lượng",
     "status": "handling",
     "reportedBy": "Hoàng E",
-    "date": "08/03/2025"
+    "date": "08/10/2026"
   }
 ]
