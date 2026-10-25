@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quản lý sản phẩm — CraftLink</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../css/base/base.css" />
+  <link rel="stylesheet" href="../css/components/style.css" />
+
+</head>
+<body>
+<div class="app-layout">
+  <nav class="top-nav" aria-label="Điều hướng chính">
+    <div class="top-nav-inner">
+      <a href="../index.html" class="nav-logo">CraftLink</a>
+      <div class="nav-links">
+        <a href="../index.html" class="nav-link">Trang chủ</a>
+        <a href="buyer-marketplace.html" class="nav-link">Dạo chợ</a>
+        <a href="buyer-orders.html" class="nav-link">Đơn hàng</a>
+        <a href="maker-brief-inbox.html" class="nav-link active">Gian hàng</a>
+      </div>
+      <div class="nav-actions">
+        <a href="notifications.html" class="btn btn--sm" aria-label="Thông báo">🔔</a>
+        <a href="profile.html" class="btn btn--sm"><span id="navUser" class="nav-user">Tài khoản</span></a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main-content">
+    <div class="container">
+      <div class="empty-box" id="sellGate" hidden>
+        <div class="big">🏪</div>
+        <h3>Bạn chưa mở gian hàng</h3>
+        <p class="muted u-mb16">Đăng ký người bán xong mới đăng được sản phẩm nhé.</p>
+        <a href="seller-register.html" class="btn btn--primary">Đăng ký bán hàng</a>
+      </div>
+      <div id="sellBody" hidden>
+        <div class="page-header">
+          <div class="page-head-row">
+            <div><h1>Quản lý sản phẩm</h1><p id="listingSub"></p></div>
+            <button class="btn btn--primary" id="btnOpenModal" type="button">+ Thêm sản phẩm</button>
+          </div>
+        </div>
+        <div class="row u-mb16">
+          <div class="cover-side">
+            <input class="input" id="search" placeholder="Tìm sản phẩm..." autocomplete="off" aria-label="Tìm sản phẩm" />
+          </div>
+        </div>
+        <div class="tabs" id="listingTabs" role="tablist" aria-label="Trạng thái sản phẩm"></div>
+        <div id="state-loading"><div class="card skel media-h200"></div></div>
+        <div class="error-box" id="state-error" hidden>
+          <div class="big">⚠️</div><h3>Đã xảy ra lỗi</h3>
+          <p class="muted u-mb20">Không thể tải dữ liệu. Vui lòng thử lại.</p>
+          <button class="btn btn--primary" id="btnRetry" type="button">Thử lại</button>
+        </div>
+        <div class="empty-box" id="state-empty" hidden>
+          <div class="big">🌱</div><p class="muted">Chưa có sản phẩm nào</p>
+          <div class="mt-8"><button class="btn btn--primary" id="btnEmptyAdd" type="button">Thêm sản phẩm đầu tiên</button></div>
+        </div>
+        <div class="card media-crop" id="tableCard">
+          <div class="table-wrap"><table class="table">
+            <thead><tr><th scope="col">Mã SP</th><th scope="col">Tên sản phẩm</th><th scope="col">Danh mục</th><th scope="col">Giá</th><th scope="col">Trạng thái</th><th scope="col">Hành động</th></tr></thead>
+            <tbody id="rows"></tbody>
+          </table></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div><h4>Mua</h4><a href="buyer-marketplace.html">Dạo chợ</a><a href="buyer-custom-brief.html">Đặt riêng</a><a href="buyer-orders.html">Đơn hàng</a></div>
+      <div><h4>Bán</h4><a href="maker-listing-management.html">Quản lý sản phẩm</a><a href="maker-brief-inbox.html">Hộp thư brief</a><a href="maker-proposal-editor.html">Đề xuất</a><a href="seller-register.html">Mở gian hàng</a></div>
+      <div><h4>Duyệt &amp; quản trị</h4><a href="moderator-moderation-queue.html">Hàng chờ duyệt</a><a href="moderator-report-center.html">Trung tâm báo cáo</a><a href="moderator-content-guidelines.html">Hướng dẫn nội dung</a><a href="admin-platform-dashboard.html">Dashboard Admin</a></div>
+      <div><h4>Tài khoản</h4><a href="profile.html">Hồ sơ</a><a href="settings.html">Cài đặt</a><a href="notifications.html">Thông báo</a><a href="login.html">Đăng nhập</a></div>
+    </div>
+    <div class="footer-bottom">© 2025 CraftLink. Nền tảng kết nối người mua và thợ thủ công.</div>
+  </footer>
+</div>
+
+<div class="modal-veil" id="listingModal" hidden>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="formTitle">
+    <div class="modal-head"><h3 id="formTitle">Thêm sản phẩm mới</h3><button class="btn btn--sm" id="btnCloseModal" type="button" aria-label="Đóng">✕</button></div>
+    <div class="field"><label class="lbl" for="fTitle">Tên sản phẩm <span class="req">*</span></label><input class="input" id="fTitle" placeholder="VD: Bình gốm men lam" /></div>
+    <div class="field"><label class="lbl" for="fCat">Danh mục</label><select class="input" id="fCat"></select></div>
+    <div class="field"><label class="lbl" for="fPrice">Giá bán <span class="req">*</span></label><input class="input" id="fPrice" type="number" min="0" placeholder="VD: 420000" /></div>
+    <div class="field"><label class="lbl" for="fOpts">Nhận làm (cách nhau bằng dấu phẩy)</label><input class="input" id="fOpts" placeholder="VD: khắc tên, kích thước" /></div>
+    <p class="form-err" id="formErr" role="alert" hidden></p>
+    <div class="row row--end-mt8">
+      <button class="btn" id="btnCancelModal" type="button">Hủy</button>
+      <button class="btn btn--primary" id="btnSave" type="button">Gửi duyệt</button>
+    </div>
+  </div>
+</div>
+
+<script src="../js/api.js"></script>
+<script src="../js/modules/ui-state.js"></script>
+<script src="../js/modules/bottom-nav.js"></script>
+<script src="../js/pages/maker-listing-management.js"></script>
+</body>
+</html>
