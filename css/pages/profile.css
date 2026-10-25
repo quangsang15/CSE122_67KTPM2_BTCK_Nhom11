@@ -1,0 +1,62 @@
+.profile-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 20px;
+}
+.kv {
+  margin-bottom: 12px;
+}
+.kv small {
+  font-size: 12px;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 2px;
+}
+.avatar-xl {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0 auto 12px;
+}
+#btnEdit,
+#linkSell,
+#btnLogout {
+  padding: 6px 12px;
+  font-size: 13px;
+  border-radius: 6px;
+  margin-right: 8px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-family: inherit;
+}
+#btnEdit {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+#btnEdit:hover {
+  background: var(--primary-dark);
+}
+#linkSell {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+#linkSell:hover {
+  background: var(--primary-dark);
+}
+#btnLogout {
+  background: #dc2626;
+  color: #fff;
+  border-color: #dc2626;
+}
+#btnLogout:hover {
+  background: #b91c1c;
+}
