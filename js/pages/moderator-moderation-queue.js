@@ -1,4 +1,5 @@
 (() => {
+  Guard.require("moderator", "admin");
   const $ = (id) => document.getElementById(id);
   const TABS = [
     ["pending", "Chờ duyệt"],
