@@ -19,6 +19,40 @@
 [hidden] {
   display: none !important;
 }
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --bg: #eef4ff;
+  --text: #1e293b;
+  --muted: #64748b;
+  --card: #fff;
+  --border: #e2e8f0;
+  --radius: 10px;
+  --shadow: 0 1px 6px rgba(30, 100, 255, 0.05);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+body {
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+  font-size: 14px;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--primary);
+}
+
 
 body {
   font-family: "Inter", "Segoe UI", system-ui, sans-serif;
