@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quản lý đề xuất — CraftLink</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../css/base/base.css" />
+  <link rel="stylesheet" href="../css/components/style.css" />
+
+</head>
+<body>
+<div class="app-layout">
+  <nav class="top-nav" aria-label="Điều hướng chính">
+    <div class="top-nav-inner">
+      <a href="../index.html" class="nav-logo">CraftLink</a>
+      <div class="nav-links">
+        <a href="../index.html" class="nav-link">Trang chủ</a>
+        <a href="buyer-marketplace.html" class="nav-link">Dạo chợ</a>
+        <a href="buyer-orders.html" class="nav-link">Đơn hàng</a>
+        <a href="maker-brief-inbox.html" class="nav-link active">Gian hàng</a>
+      </div>
+      <div class="nav-actions">
+        <a href="notifications.html" class="btn btn--sm" aria-label="Thông báo">🔔</a>
+        <a href="profile.html" class="btn btn--sm"><span id="navUser" class="nav-user">Tài khoản</span></a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main-content">
+    <div class="container u-mw760">
+      <div class="page-header"><h1>Quản lý đề xuất</h1><p>Các đề xuất gửi đến khách hàng</p></div>
+      <div class="tabs" id="propTabs" role="tablist" aria-label="Trạng thái đề xuất"></div>
+
+      <section class="card u-mb20">
+        <h3 class="u-mb12">Soạn báo giá mới</h3>
+        <div class="field"><label class="lbl" for="fBrief">Chọn yêu cầu bạn đã nhận</label><select class="input" id="fBrief"></select></div>
+        <div class="grid-2">
+          <div class="field"><label class="lbl" for="fPrice">Giá báo (₫)</label><input class="input" id="fPrice" type="number" min="0" placeholder="VD 890000" /></div>
+          <div class="field"><label class="lbl" for="fTimeline">Hẹn làm trong</label><input class="input" id="fTimeline" placeholder="VD 7 ngày" /></div>
+        </div>
+        <div class="field"><label class="lbl" for="fMsg">Lời nhắn + cách bạn làm</label><textarea class="input" id="fMsg" rows="3" placeholder="VD: Gỗ sồi, khắc laser, freeship..."></textarea></div>
+        <p class="form-err" id="formErr" role="alert" hidden></p>
+        <div class="row">
+          <button class="btn btn--sm" id="btnDraft" type="button">Lưu nháp</button>
+          <button class="btn btn--primary btn--sm" id="btnSend" type="button">Gửi cho khách</button>
+          <button class="btn btn--sm" id="btnAISuggest" type="button">Nhờ AI xem còn sót góp ý nào</button>
+        </div>
+        <div id="aiLoading" hidden class="mt-12"><span class="spinner"></span> <span class="muted">Đang xem lại góp ý...</span></div>
+        <div id="aiBox" hidden class="mt-12">
+          <b>🤖 Góp ý còn sót</b>
+          <p class="muted" id="aiWhy"></p>
+          <div id="aiTasks" class="mt-8"></div>
+          <div class="row mt-8">
+            <button class="btn btn--primary btn--sm" id="btnAIApply" type="button">Chèn vào báo giá</button>
+            <button class="btn btn--sm" id="btnAISkip" type="button">Bỏ qua</button>
+          </div>
+        </div>
+        <div id="aiFail" hidden class="mt-12"><b>Chưa có gì để xem.</b> <span class="muted">Chưa có góp ý nào cho món này.</span></div>
+      </section>
+
+      <div id="state-loading"><div class="card skel media-h80"></div></div>
+      <div class="error-box" id="state-error" hidden>
+        <div class="big">⚠️</div><h3>Đã xảy ra lỗi</h3>
+        <p class="muted u-mb20">Không thể tải dữ liệu. Vui lòng thử lại.</p>
+        <button class="btn btn--primary" id="btnRetry" type="button">Thử lại</button>
+      </div>
+      <div class="empty-box" id="state-empty" hidden>
+        <div class="big">📝</div><p class="muted">Chưa có báo giá nào.</p>
+      </div>
+      <div id="list" class="u-col-12"></div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div><h4>Mua</h4><a href="buyer-marketplace.html">Dạo chợ</a><a href="buyer-custom-brief.html">Đặt riêng</a><a href="buyer-orders.html">Đơn hàng</a></div>
+      <div><h4>Bán</h4><a href="maker-listing-management.html">Quản lý sản phẩm</a><a href="maker-brief-inbox.html">Hộp thư brief</a><a href="maker-proposal-editor.html">Đề xuất</a><a href="seller-register.html">Mở gian hàng</a></div>
+      <div><h4>Duyệt &amp; quản trị</h4><a href="moderator-moderation-queue.html">Hàng chờ duyệt</a><a href="moderator-report-center.html">Trung tâm báo cáo</a><a href="moderator-content-guidelines.html">Hướng dẫn nội dung</a><a href="admin-platform-dashboard.html">Dashboard Admin</a></div>
+      <div><h4>Tài khoản</h4><a href="profile.html">Hồ sơ</a><a href="settings.html">Cài đặt</a><a href="notifications.html">Thông báo</a><a href="login.html">Đăng nhập</a></div>
+    </div>
+    <div class="footer-bottom">© 2025 CraftLink. Nền tảng kết nối người mua và thợ thủ công.</div>
+  </footer>
+</div>
+
+<div class="modal-veil" id="editModal" hidden>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="editTitle">
+    <div class="modal-head"><h3 id="editTitle">Chỉnh sửa &amp; Gửi đề xuất</h3><button class="btn btn--sm" id="btnCloseEdit" type="button" aria-label="Đóng">✕</button></div>
+    <div class="field"><label class="lbl" for="ePrice">Giá đề xuất <span class="req">*</span></label><input class="input" id="ePrice" /></div>
+    <div class="field"><label class="lbl" for="eTimeline">Thời gian hoàn thành <span class="req">*</span></label><input class="input" id="eTimeline" /></div>
+    <div class="field"><label class="lbl" for="eNote">Ghi chú thêm</label><textarea class="input" id="eNote" rows="3" placeholder="Mô tả thêm về phương pháp, vật liệu..."></textarea></div>
+    <div class="row row--end">
+      <button class="btn" id="btnCancelEdit" type="button">Hủy</button>
+      <button class="btn btn--primary" id="btnSubmitEdit" type="button">Gửi đề xuất</button>
+    </div>
+  </div>
+</div>
+
+<script src="../js/modules/escape.js"></script>
+<script src="../js/api.js"></script>
+<script src="../js/modules/ui-state.js"></script>
+<script src="../js/modules/ai-revision.js"></script>
+<script src="../js/modules/bottom-nav.js"></script>
+<script src="../js/pages/maker-proposal-editor.js"></script>
+</body>
+</html>
