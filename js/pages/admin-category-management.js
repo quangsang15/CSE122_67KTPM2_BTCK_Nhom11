@@ -1,5 +1,5 @@
 (() => {
-  Guard.require("admin");
+  Guard.require("moderator", "admin");
   const $ = (id) => document.getElementById(id);
   let cats = [];
   let listings = [];
@@ -106,7 +106,9 @@
           "<td><div class='row'><button class='btn btn--sm' data-edit='" +
           c.id +
           "'>Sửa</button>" +
-          "<button class='btn btn--sm " + (c.archived ? "btn--outline-success" : "btn--archive") + "' data-arch='" +
+          "<button class='btn btn--sm " +
+          (c.archived ? "btn--outline-success" : "btn--archive") +
+          "' data-arch='" +
           c.id +
           "'>" +
           (c.archived ? "Khôi phục" : "Lưu trữ") +

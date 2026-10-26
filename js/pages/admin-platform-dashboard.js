@@ -1,5 +1,5 @@
 (() => {
-  Guard.require("moderator", "admin");
+  Guard.require("admin");
   const getElementById = (id) => document.getElementById(id);
   const STORAGE_PREFIX = "craftlink_";
   const STORAGE_SUFFIX = "_v1";

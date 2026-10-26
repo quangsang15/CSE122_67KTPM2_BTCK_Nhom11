@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cài đặt — CraftLink</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../css/base/base.css" />
+  <link rel="stylesheet" href="../css/components/style.css" />
+
+</head>
+<body>
+<div class="app-layout">
+  <nav class="top-nav" aria-label="Điều hướng chính">
+    <div class="top-nav-inner">
+      <a href="../index.html" class="nav-logo">CraftLink</a>
+      <div class="nav-links">
+        <a href="../index.html" class="nav-link">Trang chủ</a>
+        <a href="buyer-marketplace.html" class="nav-link">Dạo chợ</a>
+        <a href="buyer-orders.html" class="nav-link">Đơn hàng</a>
+        <a href="maker-brief-inbox.html" class="nav-link">Gian hàng</a>
+      </div>
+      <div class="nav-actions">
+        <a href="notifications.html" class="btn btn--sm" aria-label="Thông báo">🔔</a>
+        <a href="profile.html" class="btn btn--sm"><span id="navUser" class="nav-user">Tài khoản</span></a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main-content">
+    <div class="container u-mw600">
+      <div class="page-header"><h1>Cài đặt</h1><p>Tùy chỉnh tài khoản và thông báo của bạn</p></div>
+      <div class="u-col-16">
+        <div class="card">
+          <h3 class="u-mb16">Thông báo</h3>
+          <div class="row set-row">
+            <div><div class="set-label">Thông báo qua Email</div><div class="muted u-fs13">Nhận email về đơn hàng và tin nhắn</div></div>
+            <button class="toggle" id="tglMail" type="button" role="switch" aria-label="Thông báo qua email"><i></i></button>
+          </div>
+          <div class="row set-row">
+            <div><div class="set-label">Thông báo qua SMS</div><div class="muted u-fs13">Nhận SMS khi có cập nhật quan trọng</div></div>
+            <button class="toggle" id="tglSms" type="button" role="switch" aria-label="Thông báo qua SMS"><i></i></button>
+          </div>
+          <div class="row set-row--plain">
+            <div><div class="set-label">Nền tối</div><div class="muted u-fs13">Đổi nền tối/sáng, máy tự nhớ</div></div>
+            <button class="toggle" id="tglTheme" type="button" role="switch" aria-label="Nền tối"><i></i></button>
+          </div>
+        </div>
+        <div class="card">
+          <h3 class="u-mb16">Ngôn ngữ</h3>
+          <select class="input u-mw200" id="lang"><option value="vi">Tiếng Việt</option><option value="en">English</option></select>
+        </div>
+        <div class="card danger-card">
+          <h3 class="danger-title">Vùng nguy hiểm</h3>
+          <p class="muted u-fs13 u-mb16">Các hành động này không thể hoàn tác.</p>
+          <button class="btn btn--danger btn--sm" id="btnDelete" type="button">Xóa tài khoản</button>
+        </div>
+        <button class="btn btn--primary u-align-start" id="btnSave" type="button">Lưu cài đặt</button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div><h4>Mua</h4><a href="buyer-marketplace.html">Dạo chợ</a><a href="buyer-custom-brief.html">Đặt riêng</a><a href="buyer-orders.html">Đơn hàng</a></div>
+      <div><h4>Bán</h4><a href="maker-listing-management.html">Quản lý sản phẩm</a><a href="maker-brief-inbox.html">Hộp thư brief</a><a href="maker-proposal-editor.html">Đề xuất</a><a href="seller-register.html">Mở gian hàng</a></div>
+      <div><h4>Duyệt &amp; quản trị</h4><a href="moderator-moderation-queue.html">Hàng chờ duyệt</a><a href="moderator-report-center.html">Trung tâm báo cáo</a><a href="moderator-content-guidelines.html">Hướng dẫn nội dung</a><a href="admin-platform-dashboard.html">Dashboard Admin</a></div>
+      <div><h4>Tài khoản</h4><a href="profile.html">Hồ sơ</a><a href="settings.html">Cài đặt</a><a href="notifications.html">Thông báo</a><a href="login.html">Đăng nhập</a></div>
+    </div>
+    <div class="footer-bottom">© 2025 CraftLink. Nền tảng kết nối người mua và thợ thủ công.</div>
+  </footer>
+</div>
+
+<script src="../js/modules/ui-state.js"></script>
+<script src="../js/modules/bottom-nav.js"></script>
+<script src="../js/pages/settings.js"></script>
+</body>
+</html>

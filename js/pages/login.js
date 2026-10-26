@@ -41,7 +41,8 @@
         "craftlink_session_v1",
         JSON.stringify({ email, role }),
       );
-      location.href = "admin-platform-dashboard.html";
+      UIState.renderToast("success", "Đăng nhập thành công!");
+      location.href = "../index.html";
     }, 800);
   });
 })();
