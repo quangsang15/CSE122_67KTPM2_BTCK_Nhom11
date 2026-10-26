@@ -10,48 +10,96 @@
     />
     <link rel="stylesheet" href="../css/base/base.css" />
     <link rel="stylesheet" href="../css/components/style.css" />
+    <link rel="stylesheet" href="../css/pages/auth.css" />
   </head>
   <body>
     <div class="app-layout">
-      <main class="main-content">
-        <div class="container u-mw800">
-          <div class="card" style="max-width: 420px; margin: 40px auto">
-            <h1>Đăng nhập</h1>
-            <p class="muted u-mb16">
-              Demo: email bắt đầu bằng mod/admin/maker/buyer.
-            </p>
-            <form id="loginForm">
+      <nav class="top-nav" aria-label="Điều hướng chính">
+        <div class="top-nav-inner">
+          <a href="../index.html" class="nav-logo">CraftLink</a>
+          <div class="nav-links">
+            <a href="../index.html" class="nav-link">Trang chủ</a>
+            <a href="buyer-marketplace.html" class="nav-link">Dạo chợ</a>
+            <a href="buyer-orders.html" class="nav-link">Đơn hàng</a>
+            <a href="maker-brief-inbox.html" class="nav-link">Gian hàng</a>
+          </div>
+          <div class="nav-actions">
+            <a
+              href="notifications.html"
+              class="btn btn--sm"
+              aria-label="Thông báo"
+              >🔔</a
+            >
+            <a href="profile.html" class="btn btn--sm"
+              ><span class="nav-user"
+                >Tài khoản</span
+              ></a
+            >
+          </div>
+        </div>
+      </nav>
+      <main class="main-content auth-wrap">
+        <div class="auth-box">
+          <div class="auth-head">
+            <a href="../index.html" class="logo">CraftLink</a>
+            <h1 class="auth-title">Đăng nhập</h1>
+            <p class="muted">Chào mừng trở lại!</p>
+          </div>
+          <div class="card">
+            <form id="loginForm" novalidate>
               <div class="field">
-                <label class="lbl" for="email">Email</label>
+                <label class="lbl" for="email"
+                  >Email <span class="req">*</span></label
+                >
                 <input
                   class="input"
                   id="email"
                   type="email"
-                  placeholder="mod@craftlink.vn"
+                  placeholder="ban@email.com"
+                  autocomplete="email"
                 />
                 <p class="form-err" id="emailErr" hidden></p>
               </div>
               <div class="field">
-                <label class="lbl" for="pw">Mật khẩu</label>
+                <label class="lbl" for="pw"
+                  >Mật khẩu <span class="req">*</span></label
+                >
                 <input
                   class="input"
                   id="pw"
                   type="password"
-                  placeholder="••••••"
+                  placeholder="••••••••"
+                  autocomplete="current-password"
                 />
                 <p class="form-err" id="pwErr" hidden></p>
               </div>
-              <div class="row u-mt8">
-                <button class="btn btn--primary" id="btnLogin" type="submit">
-                  Đăng nhập
-                </button>
+              <div class="pw-row">
+                <a
+                  href="forgot-password.html"
+                  class="auth-link"
+                  >Quên mật khẩu?</a
+                >
               </div>
+              <button
+                class="btn btn--primary btn--block"
+                id="btnLogin"
+                type="submit"
+              >
+                Đăng nhập
+              </button>
             </form>
+            <p class="auth-alt">
+              Chưa có tài khoản? <a href="register.html">Đăng ký ngay</a>
+            </p>
+            <p class="muted demo-note">
+              Dùng thử: buyer@demo.vn / maker@demo.vn / mod@demo.vn /
+              admin@demo.vn (mật khẩu đủ 6 ký tự).
+            </p>
           </div>
         </div>
       </main>
     </div>
-    <script src="../js/modules/guard.js"></script>
+    <script src="../js/modules/ui-state.js"></script>
     <script src="../js/pages/login.js"></script>
   </body>
 </html>
