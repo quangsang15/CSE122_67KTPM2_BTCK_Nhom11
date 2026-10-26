@@ -1,0 +1,19 @@
+.notif {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 14px 16px;
+  cursor: pointer;
+}
+.notif.unread {
+  background: #f0f7ff;
+  border-left: 3px solid var(--primary);
+}
+.notif .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+  flex-shrink: 0;
+  margin-top: 6px;
+}
