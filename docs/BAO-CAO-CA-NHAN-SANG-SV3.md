@@ -1,245 +1,358 @@
-# BÁO CÁO CÁ NHÂN — SÁNG (LEADER)
+# BÁO CÁO CÁ NHÂN — NGUYỄN QUẢNG SÁNG (TRƯỚNG NHÓM)
 
 > **Họ và tên:** Nguyễn Quang Sáng  
 > **Vai trò:** Trưởng nhóm  
-> **Lớp:** 67KTPM2 – Học phần: CSE122 (Phát triển ứng dụng Web cơ bản)  
-> **Dự án:** CraftLink – Sàn sản phẩm sáng tạo tùy biến  
-> **Trách nhiệm chính:**
->
-> 1. Trực tiếp phát triển trọn gói 7 màn hình: Admin (3 trang), Moderator (3 trang), Mở gian hàng Seller (1 trang).
-> 2. Thiết kế kiến trúc CSS 3 tầng dùng chung toàn dự án (`base.css`, `components/style.css`).
-> 3. Xây dựng phân quyền Auth Guard (`guard.js`) & trang lỗi cấm quyền `403.html`.
-> 4. Quản trị tích hợp hệ thống, Review Pull Request, giải quyết xung đột mã nguồn & Phát hành phiên bản.
+> **Lớp:** 67KTPM2 — Học phần: CSE122 (Phát triển ứng dụng Web cơ bản)  
+> **Dự án:** CraftLink – Sàn sản phẩm sáng tạo tùy biến (Creator Commerce)  
+> **Vai trò chính trong nhóm:** Moderator (Duyệt nội dung, Báo cáo, Hướng dẫn nội dung), Admin (Quản lý danh mục, Quản lý người dùng, Bảng điều khiển), Mở gian hàng (Seller Register), Kiến trúc CSS toàn cục, Auth Guard, Tích hợp & phát hành.  
+> **Repo GitHub:** https://github.com/quangsang15/CSE122_67KTPM2_BTCK_Nhom11 (nhánh `dev`, nhánh đích `main`)  
+> **Link commit/PR:** Tất cả đã commit, push và merge vào `dev`.
 
 ---
 
-## MỤC LỤC CHI TIẾT
+## MỤC LỤC
 
-1. [DANH MỤC CÔNG VIỆC ĐÃ HOÀN THÀNH & MINH CHỨNG GIT/OBS](#1-danh-mục-công-việc-đã-hoàn-thành--minh-chứng-gitobs)
-   - 1.1. Bảng tổng hợp 7 màn hình phụ trách
-   - 1.2. Các đóng góp kiến trúc toàn cục (Global Architecture)
-2. [CHI TIẾT KỸ THUẬT TỪNG MÀN HÌNH DO SÁNG THỰC HIỆN](#2-chi-tiết-kỹ-thuật-từng-màn-hình-do-sáng-thực-hiện)
-   - 2.1. Màn hình 1: `admin-platform-dashboard.html` (Bảng điều khiển sàn)
-   - 2.2. Màn hình 2: `admin-category-management.html` (Quản lý danh mục & Lưu trữ)
-   - 2.3. Màn hình 3: `admin-user-management.html` (Quản lý tài khoản & Khóa/Mở khóa)
-   - 2.4. Màn hình 4: `moderator-moderation-queue.html` (Hàng chờ duyệt sản phẩm & Duyệt hàng loạt)
-   - 2.5. Màn hình 5: `moderator-report-center.html` (Trung tâm xử lý khiếu nại báo cáo)
-   - 2.6. Màn hình 6: `moderator-content-guidelines.html` (Quản lý hướng dẫn nội dung CRUD)
-   - 2.7. Màn hình 7: `seller-register.html` (Đăng ký mở gian hàng Maker đa bước)
-3. [KIẾN TRÚC HỆ THỐNG TOÀN CỤC DO LEADER THIẾT LẬP](#3-kiến-trúc-hệ-thống-toàn-cục-do-leader-thiết-lập)
-   - 3.1. Thiết kế phân tầng CSS 3 lớp giải quyết xung đột nhóm
-   - 3.2. Chuẩn hóa Responsive Mobile 390px & Bottom Navigation
-   - 3.3. Module Auth Guard (`guard.js`)
-4. [KỊCH BẢN VẤN ĐÁP TRỰC DIỆN DÀNH RIÊNG CHO SÁNG (DEFENSE CHEAT-SHEET)](#4-kịch-bản-vấn-đáp-trực-diện-dành-riêng-cho-sáng-defense-cheat-sheet)
-   - Câu hỏi vai trò Leader & Phân chia công việc
-   - Câu hỏi chuyên sâu về Dashboard & Tính toán dữ liệu
-   - Câu hỏi về Thuật toán & Quản trị trạng thái (Queue, Category, Users)
-   - Câu hỏi về Responsive & Kiến trúc CSS
-   - Câu hỏi tình huống phản biện hóc búa từ Giảng viên
-5. [TỰ ĐÁNH GIÁ ĐIỂM SỐ & MINH CHỨNG](#5-tự-đánh-giá-điểm-số--minh-chứng)
+1. [BẢNG TỔNG HỢP TẤT CẢ TASK ĐÃ GIAO & TRẠNG THÁI](#1-bảng-tổng-hợp-tất-cả-task-đã-giao--trạng-thái)
+2. [PHÂN TÍCH CHI TIẾT TỪNG TASK: YÊU CẦU → CÁCH LÀM → MÃ NGUỒN → KẾT QUẢ → MINH CHỨNG](#2-phân-tích-chi-tiết-từng-task-yêu-cầu-cách-làm-mã-nguồn-kết-quả-minh-chứng)
+3. [KIỂM THỬ VÀ CÁC LỖI ĐÃ KHẮC PHỤC](#3-kiểm-thử-và-các-lỗi-đã-khắc-phục)
+4. [TỰ ĐÁNH GIÁ KIẾN THỨC HTML, CSS, JAVASCRIPT](#4-tự-đánh-giá-kiến-thức-html-css-javascript)
+5. [PHỤ LỤC: ẢNH GIAO DIỆN, ĐƯỜNG DẪN TỆP VÀ COMMIT GIT](#5-phụ-lục-ảnh-giao-diệu-đường-dẫn-tệp-và-commit-git)
 
 ---
 
-## 1. DANH MỤC CÔNG VIỆC ĐÃ HOÀN THÀNH & MINH CHỨNG GIT/OBS
+## 1. BẢNG TỔNG HỢP TẤT CẢ TASK ĐÃ GIAO & TRẠNG THÁI
 
-### 1.1. Bảng tổng hợp 7 màn hình phụ trách
+| Mã task | Giao diện phụ trách                                   | Nhánh GitHub                               | Commit GitHub                                     | Trạng thái | Minh chứng PR |
+| ------- | ----------------------------------------------------- | ------------------------------------------ | ------------------------------------------------- | ---------- | ------------- |
+| D1      | Init repo + board + figma-link                        | `feature/quangsang-d01-board-figma`        | `docs: init board and dev branch`                 | ✅ Merged  | PR #1         |
+| D2      | `moderator-content-guidelines.html`                   | `feature/quangsang-d02-guidelines-html`    | `feat: add guidelines page html`                  | ✅ Merged  | PR #2         |
+| D3      | `moderator-report-center.html`                        | `feature/quangsang-d03-reports-html`       | `feat: add report center html`                    | ✅ Merged  | PR #3         |
+| D4      | `admin-category-management.html`                      | `feature/quangsang-d04-category-html`      | `feat: add category page html`                    | ✅ Merged  | PR #4         |
+| D5      | `moderator-moderation-queue.html`                     | `feature/quangsang-d05-queue-html`         | `feat: add moderation queue html`                 | ✅ Merged  | PR #5         |
+| D6      | `admin-user-management.html` + `seller-register.html` | `feature/quangsang-d06-users-html`         | `feat: add user page html`                        | ✅ Merged  | PR #6         |
+| D6      | `seller-register.html`                                | `feature/quangsang-d06-seller-html`        | `feat: add seller register html`                  | ✅ Merged  | PR #7         |
+| —       | Split CSS 3 tầng + footer                             | `chores/quangsang-global-admin-allpage`    | `chore: update footer copyright...`               | ✅ Merged  | PR #8         |
+| D7      | `admin-platform-dashboard.html`                       | `feature/quangsang-d07-dashboard-html`     | `feat: add dashboard page html`                   | ✅ Merged  | PR #9         |
+| —       | Fix cấu trúc + responsive bottom-nav                  | `fix/quangsang-admin-structure-responsive` | `fix: correct admin page structure...`            | ✅ Merged  | PR #11        |
+| D8      | Queue render từ mock JSON                             | `feature/quangsang-d08-queue-render`       | `feat: render queue from mock json`               | ✅ Merged  | PR #12        |
+| D9      | Report filter open/handling/done                      | `feature/quangsang-d09-report-filter`      | `feat: add report status filter`                  | ✅ Merged  | PR #13        |
+| D10     | User Khóa/Mở, cấm khóa Admin                          | `feature/quangsang-d10-user-lock`          | `feat: lock unlock user account`                  | ✅ Merged  | PR #14        |
+| D11     | Dashboard đếm số liệu + `?fail=1`                     | `feature/quangsang-d11-dashboard-stats`    | `feat: add responsive dashboard layout`           | ✅ Merged  | PR #15        |
+| D12     | Queue duyệt/từ chối/bulk + seller validate            | `feature/quangsang-d12-moderate-seller`    | `feat: approve listings and validate seller form` | ✅ Merged  | PR #16        |
+| D13     | Auth Guard login/403                                  | `feature/quangsang-d13-auth-guard`         | `feat: add role guard and 403 redirect`           | ✅ Merged  | PR #17        |
+| D13a    | Category CRUD + Archive                               | `feature/quangsang-d13a-category-crud`     | `feat: add category crud with archive`            | ✅ Merged  | PR #18        |
+| D13b    | Guidelines CRUD JS                                    | `feature/quangsang-d13b-guidelines-crud`   | `feat: add guidelines crud js`                    | ✅ Merged  | PR #19        |
+| —       | Fix CSS utils + toast                                 | `feature/quangsang-fix-css-utils`          | `style: add missing css utilities`                | ✅ Merged  | PR #20        |
+| —       | Docs readme + báo cáo                                 | `docs/add-readme-introduce`                | `docs: add readme.md and baocao`                  | ✅ Merged  | PR #21        |
 
-| STT | Màn hình               | Tệp HTML / JS / CSS                                                                                          | Vai trò | Chức năng chính                                                                                                  | Trạng thái Git / PR                                  |
-| :-: | :--------------------- | :----------------------------------------------------------------------------------------------------------- | :-----: | :--------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------- |
-|  1  | **Dashboard**          | `pages/admin-platform-dashboard.html`<br>`js/pages/admin-platform-dashboard.js`<br>`css/pages/dashboard.css` |  Admin  | Tổng hợp KPI, vẽ biểu đồ doanh thu theo danh mục, bắt sự kiện đa tab real-time, test lỗi `?fail=1`.              | PR #9 (HTML)<br>PR #15 (JS)                          |
-|  2  | **Quản lý danh mục**   | `pages/admin-category-management.html`<br>`js/pages/admin-category-management.js`                            |  Admin  | CRUD danh mục, tự sinh slug chuẩn SEO, đếm số lượng listing liên kết, Lưu trữ / Khôi phục danh mục.              | PR #18 (Full CRUD)                                   |
-|  3  | **Quản lý người dùng** | `pages/admin-user-management.html`<br>`js/pages/admin-user-management.js`<br>`css/pages/users.css`           |  Admin  | Lọc tabs vai trò, tìm kiếm theo tên/email, Khóa/Mở khóa tài khoản có modal xác nhận, chặn khóa Admin.            | PR #6 (HTML)<br>PR #14 (JS)                          |
-|  4  | **Hàng chờ duyệt**     | `pages/moderator-moderation-queue.html`<br>`js/pages/moderator-moderation-queue.js`<br>`css/pages/queue.css` |   Mod   | Lọc tabs theo trạng thái, Duyệt / Từ chối từng sản phẩm, Checkbox chọn hàng loạt (Bulk Actions).                 | PR #5 (HTML)<br>PR #12 (Render)<br>PR #16 (Moderate) |
-|  5  | **Trung tâm báo cáo**  | `pages/moderator-report-center.html`<br>`js/pages/moderator-report-center.js`<br>`css/pages/reports.css`     |   Mod   | Phân luồng báo cáo theo 4 tab, quy trình đổi trạng thái nghiệp vụ từ Mới -> Đang xử lý -> Hoàn tất.              | PR #3 (HTML)<br>PR #13 (JS)                          |
-|  6  | **Hướng dẫn nội dung** | `pages/moderator-content-guidelines.html`<br>`js/pages/moderator-content-guidelines.js`                      |   Mod   | Quản lý quy chuẩn sản phẩm, Form thêm/sửa, modal xác nhận xóa, toggle hiển thị box rỗng khi hết dữ liệu.         | PR #19 (Full CRUD)                                   |
-|  7  | **Đăng ký Seller**     | `pages/seller-register.html`<br>`js/pages/seller-register.js`<br>`css/pages/seller.css`                      | Seller  | Form 3 bước (Thông tin -> Gói -> Thanh toán), validate số điện thoại/email, giả lập thanh toán nâng quyền Maker. | PR #7 (HTML)<br>PR #16 (Validate/Pay)                |
-
-### 1.2. Các đóng góp kiến trúc toàn cục (Global Architecture)
-
-- **Tổ chức hệ thống CSS 3 tầng (`PR #8`):** `base.css` (tokens), `components/style.css` (89+ UI components dùng chung), `pages/*.css` (style riêng).
-- **Phát triển và chuẩn hóa Responsive Mobile 390px (`PR #10`, `PR #11`):** Thiết kế thanh điều hướng cố định đáy trang (`.bottom-nav`) cho toàn bộ các trang Admin/Mod/Seller, tự động ẩn header Desktop, tối ưu hiển thị không bị tràn ngang ở mọi kích thước màn hình.
-- **Xây dựng module kiểm soát truy cập Client-side (`PR #17`):** Hoàn thiện `Guard.require()` kiểm tra quyền hạn trước khi tải trang, tự động redirect `login.html` và xây dựng trang cấm quyền `pages/403.html`.
-- **Chuẩn hóa hệ thống thông báo Toast & Utilities (`PR #20`):** Định nghĩa `#ui-toast` đa trạng thái (`.toast--success`, `.toast--error`), các utilities `.u-fs12`, `.u-mono`, `.col-w40`, phân biệt màu sắc nút bấm `.btn--archive`, `.btn--outline-success`.
-
----
-
-## 2. CHI TIẾT KỸ THUẬT TỪNG MÀN HÌNH DO SÁNG THỰC HIỆN
-
-### 2.1. `admin-platform-dashboard.html` (Bảng điều khiển sàn)
-
-- **Đặc điểm kỹ thuật nổi bật:**
-  - Tổng hợp dữ liệu đa nguồn từ các mảng: `orders`, `listings`, `users`.
-  - Tính toán các chỉ số kinh doanh chính xác: Tổng doanh thu (VNĐ), Tổng đơn hàng, Số thợ thủ công đang hoạt động, Tỷ lệ duyệt listing thành công (%).
-  - Biểu đồ phân bổ doanh thu theo danh mục: Tính tỷ lệ phần trăm động và vẽ thanh biểu đồ (`width: X%`) bằng JavaScript thuần.
-  - **Cơ chế Phản ứng Đa tab (Multi-tab Reactive):** Lắng nghe sự kiện `storage`. Khi tài khoản Moderator duyệt thêm bài hoặc Admin khóa tài khoản ở cửa sổ khác, Dashboard tự động tính toán lại mà không cần tải lại trang.
-  - **Kiểm thử xử lý lỗi (Resilience Testing):** Hỗ trợ cờ tham số `?fail=1` trên URL để kiểm tra khả năng phục hồi lỗi của giao diện: khi gặp sự cố, hiển thị hộp lỗi màu đỏ `#state-error` kèm nút `Thử lại (btnRetry)` thay vì bị crash ứng dụng.
-
-### 2.2. `admin-category-management.html` (Quản lý danh mục & Lưu trữ)
-
-- **Đặc điểm kỹ thuật nổi bật:**
-  - **Hàm sinh Slug chuẩn SEO:** Tự động loại bỏ dấu tiếng Việt chuẩn Unicode NFD, chuyển ký tự thường và thay khoảng trắng bằng dấu gạch ngang (ví dụ: _"Đồ gốm sứ Bát Tràng"_ -> `do-gom-su-bat-trang`).
-  - **Liên kết chéo dữ liệu (Data Integrity):** Tính toán số lượng sản phẩm đang hoạt động (`active`) tương ứng với từng danh mục từ bảng `listings`.
-  - **Tính năng Soft Delete (Lưu trữ / Khôi phục):** Thay vì xóa hẳn làm mất dữ liệu sản phẩm của các Maker, danh mục được chuyển trạng thái `archived: true/false`.
-  - Nút bấm trực quan: Khi hoạt động có nút `Lưu trữ` (.btn--archive viền muted); khi đã lưu trữ có nút `Khôi phục` (.btn--outline-success viền xanh lá) kèm badge phân biệt rõ ràng.
-
-### 2.3. `admin-user-management.html` (Quản lý tài khoản)
-
-- **Đặc điểm kỹ thuật nổi bật:**
-  - Hệ thống Tabs lọc theo vai trò: Tất cả, Khách hàng (Buyer), Nghệ nhân (Maker), Moderator kèm số lượng đếm động trên nhãn tab.
-  - Tìm kiếm thời gian thực (Real-time Filter) theo tên hoặc email.
-  - **Nguyên tắc nghiệp vụ quan trọng (Business Rule):** Tuyệt đối **không cho phép khóa tài khoản Admin**. Khi người dùng cố tình click nút khóa tại tài khoản Admin, hệ thống vô hiệu hóa nút bấm và kích hoạt Toast cảnh báo lỗi đỏ: _"Không thể khóa tài khoản Admin!"_.
-  - Modal xác nhận hành động nguy hiểm: Có modal xác nhận trước khi thực hiện thao tác khóa để tránh click nhầm.
-
-### 2.4. `moderator-moderation-queue.html` (Hàng chờ duyệt sản phẩm)
-
-- **Đặc điểm kỹ thuật nổi bật:**
-  - Phân luồng 3 tab: Chờ duyệt (`pending`), Đã duyệt (`active`), Đã từ chối (`rejected`).
-  - Tương tác duyệt đơn lẻ: Mỗi sản phẩm chờ duyệt có 2 nút độc lập `Duyệt` (.btn--primary xanh) và `Từ chối` (.btn--danger đỏ).
-  - **Thao tác hàng loạt (Bulk Actions):** Sử dụng cấu trúc dữ liệu `Set` trong JavaScript để quản lý danh sách ID được chọn qua checkbox. Khi tích chọn từ 1 sản phẩm trở lên, thanh công cụ hàng loạt tự động trượt ra với nút _"Duyệt đã chọn (X)"_, cho phép duyệt cùng lúc nhiều sản phẩm chỉ với 1 cú click.
-
-### 2.5. `moderator-report-center.html` (Trung tâm xử lý khiếu nại báo cáo)
-
-- **Đặc điểm kỹ thuật nổi bật:**
-  - Quản lý quy trình trạng thái báo cáo (State Transition):
-    `open` (Báo cáo mới gửi) -> `handling` (Đang thẩm định chứng cứ) -> `done` (Đã xử lý xong/Đóng báo cáo).
-  - Giao diện linh hoạt: Tại trạng thái `open` hiển thị nút `Xử lý`; tại `handling` hiển thị nút `Đóng báo cáo`; tại `done` tự động ẩn nút và hiển thị tag `✅ Đã xong`.
-  - Cập nhật số lượng báo cáo tồn đọng trên tiêu đề phụ giúp kiểm duyệt viên nắm bắt khối lượng công việc tức thì.
-
-### 2.6. `moderator-content-guidelines.html` (Quản lý hướng dẫn nội dung)
-
-- **Đặc điểm kỹ thuật nổi bật:**
-  - Hoàn thiện trọn vẹn chu trình CRUD dữ liệu (Create, Read, Update, Delete) độc lập.
-  - Validate form chặt chẽ: Kiểm tra trường bắt buộc, hiển thị thông báo lỗi `#formErr` ngay trong modal.
-  - Modal xác nhận xóa hai bước đảm bảo an toàn dữ liệu.
-  - **Xử lý trạng thái rỗng tự động (Zero-state UX):** Khi người dùng xóa hết các hướng dẫn, thẻ danh sách `#list` tự động ẩn và kích hoạt khối rỗng `#state-empty` với icon 📋 và dòng hướng dẫn thân thiện.
-
-### 2.7. `seller-register.html` (Đăng ký mở gian hàng Maker đa bước)
-
-- **Đặc điểm kỹ thuật nổi bật:**
-  - Thiết kế quy trình đăng ký 3 bước chuẩn thương mại điện tử (Multi-step Form):
-    `Bước 1: Thông tin gian hàng` -> `Bước 2: Lựa chọn gói dịch vụ` -> `Bước 3: Xác nhận & Thanh toán`.
-  - Kiểm tra hợp lệ dữ liệu (Form Validation) bằng biểu thức chính quy (Regex): Validate định dạng số điện thoại Việt Nam (10 chữ số bắt đầu bằng 0), định dạng email chuẩn.
-  - Giả lập cổng thanh toán: Hiệu ứng chờ xử lý (Spinner animation ~1.2s), sau khi thanh toán thành công tự động nâng quyền tài khoản trong `craftlink_session_v1` thành `maker` và cập nhật danh sách người dùng.
+**Tổng cộng:** 17 PR đã merge vào `dev`, 0 PR chưa merge, 0 task bị bỏ sót. Tất cả công việc cá nhân của Sáng (D1–D13 + fix + docs) đã hoàn tất và tích hợp vào nhánh `dev`.
 
 ---
 
-## 3. KIẾN TRÚC HỆ THỐNG TOÀN CỤC DO LEADER THIẾT LẬP
+## 2. PHÂN TÍCH CHI TIẾT TỪNG TASK
 
-### 3.1. Phân tầng CSS 3 lớp giải quyết xung đột nhóm
-
-Để tránh tình trạng 3 người cùng sửa một file CSS gây ra xung đột khi merge Git, Sáng đã thiết lập cấu trúc 3 tầng:
-
-1. `css/base/base.css`: Định nghĩa toàn bộ tokens `:root` (màu sắc, kích thước, bo góc, bóng đổ) và reset CSS.
-2. `css/components/style.css`: File thành phần chung chứa hơn 89 components chuẩn hóa (nút bấm, badge, bảng, card, modal, tabs, toasts, media...). Huy và Sơn chỉ việc dùng mà không cần viết lại.
-3. `css/pages/<trang>.css`: Style đặc thù riêng cho từng màn hình.
-
-### 3.2. Chuẩn hóa Responsive Mobile 390px & Bottom Navigation
-
-- Kiểm thử hiển thị khắt khe qua Chrome DevTools Protocol (CDP) tại kích thước điện thoại 390x844px.
-- Thiết lập quy tắc media query `@media (max-width: 600px)`:
-  - Ẩn thanh `.top-nav` desktop để giải phóng không gian màn hình.
-  - Kích hoạt thanh `.bottom-nav` cố định ở đáy màn hình với 5 mục quản trị chính kèm icon FontAwesome dễ bấm.
-  - Thêm `padding-bottom: 68px` cho layout để nội dung không bị thanh điều hướng che lấp.
-  - Đảm bảo 100% trang không bị lỗi tràn thanh cuộn ngang (`docScrollW == innerWidth`).
-
-### 3.3. Module Auth Guard (`guard.js`)
-
-Đóng gói logic phân quyền phía Client:
-
-```javascript
-Guard.require("moderator", "admin");
-```
-
-- Tự động lấy vai trò người dùng từ session đăng nhập.
-- Nếu chưa đăng nhập: Chuyển hướng ngay về `login.html`.
-- Nếu sai vai trò: Chuyển hướng về trang lỗi `403.html` và ném ngoại lệ ngắt toàn bộ script phía sau.
+Mỗi task được trình bày theo chuỗi: **Yêu cầu → Cách thực hiện → Mã nguồn liên quan → Kết quả → Minh chứng**.
 
 ---
 
-## 4. KỊCH BẢN VẤN ĐÁP TRỰC DIỆN DÀNH RIÊNG CHO SÁNG (DEFENSE CHEAT-SHEET)
+### Task D1: Init repo + board + figma-link
 
-### Nhóm câu hỏi 1: Về vai trò Trưởng nhóm & Quản lý tiến độ
+**Yêu cầu:** Khởi tạo repo GitHub, tạo nhánh `dev`, bảng kiểm kê màn hình (Trello/Notion 5 cột), khóa link Figma, tạo 8 frame trắng cho Sitemap/Flow.
 
-**Q1: Với vai trò Trưởng nhóm, bạn đã tổ chức quy trình làm việc và phân công nhiệm vụ như thế nào để đảm bảo dự án kịp tiến độ 22 màn hình?**
+**Mã nguồn liên quan:** `design/figma-link.txt`, board Trello (link trong board).
 
-> **Trả lời:** Em đã thiết lập tài liệu phân công nhiệm vụ (`team-assignment.md`) và kế hoạch 21 ngày chi tiết trước khi gõ bất kỳ dòng code nào. Em chia 22 màn hình thành 3 luồng độc lập gắn với 3 thành viên: Huy làm Buyer & Auth, Sơn làm Maker & AI, và em làm Admin, Moderator, Seller cùng kiến trúc nền tảng. Em áp dụng quy tắc Git nghiêm ngặt: Mỗi màn hình là một feature branch độc lập, code HTML/CSS trước rồi mới đến JS. Tất cả các nhánh của nhóm đều phải tạo Pull Request để em review mã nguồn, chạy kiểm thử tự động rồi mới merge vào nhánh `dev`. Nhờ kiểm soát tốt quy trình, nhóm đã merge hơn 20 PR sạch sẽ mà không gặp bất kỳ xung đột code nào.
+**Kết quả:** Repo đã có sẵn nhánh `dev`, 8 frame Figma đã duyệt, đủ điều kiện sang D2.
 
-**Q2: Nếu trong quá trình làm việc, một thành viên bị chậm tiến độ hoặc nộp code lỗi thì bạn xử lý ra sao?**
-
-> **Trả lời:** Với vai trò Leader, em chủ động xây dựng sẵn toàn bộ nền tảng dùng chung (Design tokens, CSS Components, Mock data JSON và Auth Guard) để các bạn không bị chặn (blocked). Khi review Pull Request, nếu phát hiện class CSS chưa chuẩn hoặc thiếu trạng thái rỗng/lỗi, em yêu cầu bạn sửa lại trên chính branch đó trước khi merge. Đối với những phần lõi dùng chung (như data mẫu listings, categories hay toast thông báo), em chủ động viết trước để hỗ trợ đồng đội bám sát đúng tiến độ chung của nhóm.
+**Minh chứng:** Commit `docs: init board and dev branch`, PR #1.
 
 ---
 
-### Nhóm câu hỏi 2: Về Kỹ thuật Dashboard & Tính toán dữ liệu
+### Task D2: `moderator-content-guidelines.html` (HTML)
 
-**Q3: Trên trang Dashboard, bạn tính toán các chỉ số KPI và vẽ biểu đồ doanh thu như thế nào?**
+**Yêu cầu:** Tạo khung tĩnh trang Hướng dẫn nội dung (Moderator), bao gồm danh sách quy chuẩn, modal thêm/sửa, modal xóa.
 
-> **Trả lời:** Em viết hàm `calculateKPIs()` tổng hợp dữ liệu từ 3 nguồn trong `localStorage`:
->
-> - Doanh thu: Duyệt qua mảng `orders`, tính tổng số tiền của các đơn hàng có trạng thái thanh toán thành công.
-> - Đơn hàng: Đếm tổng số bản ghi trong bảng `orders`.
-> - Thợ thủ công: Lọc mảng `users` có vai trò là `maker` và trạng thái `active`.
-> - Tỷ lệ duyệt: Lấy số listing đã duyệt (`active`) chia cho tổng số listing đã thẩm định (`active` + `rejected`) nhân 100%.
->   Đối với biểu đồ doanh thu danh mục, em tính tổng doanh thu theo từng ngành hàng, tìm giá trị lớn nhất (max) làm mốc 100%, sau đó tính toán tỷ lệ phần trăm tương đối của từng danh mục và gán động vào thuộc tính CSS `style.width = percentage + '%'` của các thanh bar.
+**Mã nguồn liên quan:** `pages/moderator-content-guidelines.html`, `css/pages/guidelines.css`.
 
-**Q4: Cơ chế "phản ứng đa tab" trên Dashboard hoạt động như thế nào? Hãy chỉ ra đoạn code đó.**
+**Kết quả:** Trang hiển thị đúng 3 card hướng dẫn, có `state-empty` với `id` + `hidden`, đúng mockup `content-guide.png`.
 
-> **Trả lời:** Em sử dụng sự kiện `storage` chuẩn của Web API:
->
-> ```javascript
-> window.addEventListener("storage", (event) => {
->   if (
->     event.key === "craftlink_listings_v1" ||
->     event.key === "craftlink_orders_v1" ||
->     event.key === "craftlink_users_v1"
->   ) {
->     loadDataAndRender();
->   }
-> });
-> ```
->
-> Khi Moderator duyệt bài ở tab Hàng chờ duyệt, hàm `localStorage.setItem("craftlink_listings_v1", ...)` được kích hoạt. Trình duyệt sẽ phát sự kiện `storage` sang tất cả các tab khác cùng domain. Tab Dashboard bắt được sự kiện này, lập tức gọi hàm đọc lại dữ liệu mới và re-render toàn bộ số liệu trên màn hình trong vòng chưa tới 50ms mà không cần người dùng phải bấm F5.
+**Minh chứng:** Commit `feat: add guidelines page html`, PR #2.
 
 ---
 
-### Nhóm câu hỏi 3: Về Thuật toán & Quản trị trạng thái (CRUD, Queue, User)
+### Task D3: `moderator-report-center.html` (HTML)
 
-**Q5: Tại sao trong trang Category bạn không cho phép Xóa vĩnh viễn (Hard Delete) mà lại làm chức năng Lưu trữ (Archive)?**
+**Yêu cầu:** Tạo khung tĩnh trang Trung tâm báo cáo (Moderator), có filter + table 3 cột rỗng + badge mẫu.
 
-> **Trả lời:** Đây là bài toán toàn vẹn dữ liệu trong thương mại điện tử (Data Integrity). Một danh mục như "Đồ gốm sứ" có thể đang liên kết với hàng chục sản phẩm của các nghệ nhân khác nhau. Nếu Admin bấm xóa vĩnh viễn danh mục đó khỏi cơ sở dữ liệu, toàn bộ các sản phẩm liên quan sẽ bị lỗi mồ côi (orphaned data), gây sập trang chi tiết hoặc vỡ giao diện Marketplace. Do đó, giải pháp chuyên nghiệp là sử dụng **Soft Delete (Lưu trữ)**: Đánh dấu `archived: true`, danh mục sẽ ẩn khỏi menu tạo mới của Maker nhưng các sản phẩm cũ vẫn hiển thị bình thường. Nút bấm cũng được em thiết kế linh hoạt cho phép "Khôi phục" lại bất cứ lúc nào.
+**Mã nguồn liên quan:** `pages/moderator-report-center.html`, `css/pages/reports.css`.
 
-**Q6: Làm sao bạn hiện thực được chức năng duyệt hàng loạt (Bulk Approve) trên trang Moderation Queue?**
+**Kết quả:** Trang hiển thị đúng 3 cột (Mã, Sản phẩm, Trạng thái), badge mẫu, đúng mockup `report-center.png`.
 
-> **Trả lời:**
->
-> - Em sử dụng một đối tượng `Set` trong JS (`const selectedIds = new Set();`) để lưu trữ ID của các hàng được người dùng tích chọn. Việc dùng `Set` giúp kiểm tra sự tồn tại và thêm/xóa ID đạt độ phức tạp $O(1)$.
-> - Khi checkbox ở tiêu đề được tích, em duyệt qua toàn bộ checkbox con và thêm tất cả ID vào `Set`.
-> - Mỗi khi `Set` thay đổi, em gọi hàm `updateBulkBar()`: Nếu `selectedIds.size > 0`, thanh công cụ nổi ở đáy bảng sẽ được kích hoạt, hiển thị nút _"Duyệt đã chọn (" + selectedIds.size + ")"_.
-> - Khi bấm nút duyệt hàng loạt, em cập nhật trạng thái của tất cả listing có ID trong `Set` thành `active`, lưu vào `localStorage` và cập nhật lại giao diện.
-
-**Q7: Tại sao bạn phải chặn tuyệt đối việc khóa tài khoản Admin trên trang User Management?**
-
-> **Trả lời:** Đây là nguyên tắc bảo vệ quyền tối cao của hệ thống (Privilege Protection). Nếu hệ thống cho phép khóa Admin, một Quản trị viên bất cẩn có thể tự khóa tài khoản của chính mình hoặc khóa tài khoản của các quản trị viên khác, dẫn đến tình trạng hệ thống bị "mồ côi quản trị" (Orphaned System) mà không ai có thể đăng nhập vào để mở khóa lại được. Do đó, trong hàm render, em đặt điều kiện: Nếu `user.role === 'admin'`, nút bấm sẽ bị vô hiệu hóa (`disabled`) và nếu có can thiệp DOM để click, hệ thống vẫn chặn ở tầng logic JS và kích hoạt Toast lỗi đỏ từ chối hành động.
+**Minh chứng:** Commit `feat: add report center html`, PR #3.
 
 ---
 
-### Nhóm câu hỏi 4: Về Kiến trúc CSS & Responsive
+### Task D4: `admin-category-management.html` (HTML)
 
-**Q8: Bạn đã tổ chức Responsive trên thiết bị di động như thế nào để đảm bảo không bị vỡ giao diện?**
+**Yêu cầu:** Tạo khung tĩnh trang Quản lý danh mục (Admin), có list nhóm hàng, nút Thêm, nút Archive mẫu.
 
-> **Trả lời:** Em sử dụng chiến lược Mobile Optimization thông qua media query:
->
-> 1. Đo kiểm và tối ưu chuẩn kích thước 390x844px (kích thước tiêu chuẩn của iPhone).
-> 2. Đưa các bảng dữ liệu phức tạp vào container `.table-wrap` có `overflow-x: auto` để bảng cuộn ngang mượt mà mà không làm méo mó các phần tử khác trên trang.
-> 3. Tự động chuyển đổi các thẻ linh động (`.row`, `.page-header-row`, `.grid-2`) thành dạng cột dọc (`flex-direction: column`) trên màn hình nhỏ.
-> 4. Chuyển đổi thanh điều hướng: Ẩn `.top-nav` và hiện `.bottom-nav` cố định đáy với khoảng đệm an toàn `padding-bottom: 68px`.
->    Toàn bộ 7 trang em làm đều được chạy kiểm thử tự động qua script CDP với kết quả `docScrollW == innerWidth` (chính xác 390px, tràn ngang 0px).
+**Mã nguồn liên quan:** `pages/admin-category-management.html`, `css/pages/category.css` (nếu có).
+
+**Kết quả:** Trang hiển thị đúng danh sách nhóm hàng, nút Archive mẫu, đúng mockup `admin-category.png`.
+
+**Minh chứng:** Commit `feat: add category page html`, PR #4.
 
 ---
 
-## 5. TỰ ĐÁNH GIÁ ĐIỂM SỐ & MINH CHỨNG
+### Task D5: `moderator-moderation-queue.html` (HTML)
 
-- **Mức độ hoàn thành khối lượng:** 100% (7/7 màn hình tự tay thiết kế và lập trình, không sao chép).
-- **Chất lượng mã nguồn:** Tuân thủ quy chuẩn Clean Code, đặt tên biến rõ ràng, module hóa độc lập, không có comment thừa trong mã phát hành.
-- **Minh chứng Git:** 20+ Pull Request liên tục, minh chứng cho toàn bộ hành trình từ phân tích, tạo khung HTML/CSS, bổ sung logic JS đến tối ưu hóa giao diện.
-- **Điểm đề xuất:** **9.5 - 10 / 10** cho toàn bộ phần công việc của SV3 (Sáng).
+**Yêu cầu:** Tạo khung tĩnh trang Hàng chờ duyệt (Moderator), filter + 2 hàng mẫu + checkbox bulk mẫu (chưa logic).
+
+**Mã nguồn liên quan:** `pages/moderator-moderation-queue.html`, `css/pages/queue.css`.
+
+**Kết quả:** Trang hiển thị đúng 3 hàng mẫu (LST-01, LST-02, LST-03), badge `badge--pending`, đúng mockup `queue.png`.
+
+**Minh chứng:** Commit `feat: add moderation queue html`, PR #5.
+
+---
+
+### Task D6: `admin-user-management.html` + `seller-register.html` (HTML)
+
+**Yêu cầu:** Tạo khung tĩnh trang Quản lý người dùng (Admin) + trang Đăng ký gian hàng (Seller).
+
+**Mã nguồn liên quan:** `pages/admin-user-management.html`, `css/pages/users.css`, `pages/seller-register.html`, `css/pages/seller.css`.
+
+**Kết quả:** 2 trang hiển thị đúng, đúng mockup `user-management.png` và `seller-register.png`.
+
+**Minh chứng:** Commit `feat: add user page html`, PR #6; Commit `feat: add seller register html`, PR #7.
+
+---
+
+### Task D7: `admin-platform-dashboard.html` (HTML)
+
+**Yêu cầu:** Tạo khung tĩnh trang Bảng điều khiển (Admin), 3–4 thẻ số liệu cứng + skeleton mẫu.
+
+**Mã nguồn liên quan:** `pages/admin-platform-dashboard.html`, `css/pages/dashboard.css`.
+
+**Kết quả:** Trang hiển thị đúng 4 thẻ số liệu cứng, skeleton mẫu, đúng mockup `admin-dashboard.png`.
+
+**Minh chứng:** Commit `feat: add dashboard page html`, PR #9.
+
+---
+
+### Task D8: Queue render từ mock JSON
+
+**Yêu cầu:** Render hàng chờ duyệt từ `listings.json` + badge theo trạng thái.
+
+**Mã nguồn liên quan:** `assets/data/listings.json`, `js/pages/moderator-moderation-queue.js`, `pages/moderator-moderation-queue.html` (thêm `<script>`).
+
+**Kết quả:** Tabs đếm chính xác, badge đúng, bulk select hoạt động, bulk approve cập nhật số lượng, localStorage lưu trạng thái.
+
+**Minh chứng:** Commit `feat: render queue from mock json`, PR #12.
+
+---
+
+### Task D9: Report filter open/handling/done
+
+**Yêu cầu:** Lọc báo cáo theo trạng thái Mở / Đang xử lý / Xong.
+
+**Mã nguồn liên quan:** `assets/data/reports.json`, `js/pages/moderator-report-center.js`, `pages/moderator-report-center.html`.
+
+**Kết quả:** Tabs đếm chính xác, badge đúng, nút Xử lý/Đóng báo cáo thay trạng thái, localStorage lưu.
+
+**Minh chứng:** Commit `feat: add report status filter`, PR #13.
+
+---
+
+### Task D10: User Khóa/Mở, cấm khóa Admin
+
+**Yêu cầu:** Quản lý tài khoản: Khóa/Mở tài khoản, tuyệt đối không cho phép khóa Admin.
+
+**Mã nguồn liên quan:** `assets/data/users.json`, `js/pages/admin-user-management.js`, `pages/admin-user-management.html`.
+
+**Kết quả:** Nút Admin bị disabled, toast lỗi khi click, localStorage lưu trạng thái khóa/mở.
+
+**Minh chứng:** Commit `feat: lock unlock user account`, PR #14.
+
+---
+
+### Task D11: Dashboard đếm số liệu + `?fail=1`
+
+**Yêu cầu:** Bảng điều khiển đếm số liệu từ JSON, hỗ trợ demo lỗi `?fail=1`.
+
+**Mã nguồn liên quan:** `assets/data/orders.json`, `assets/data/briefs.json`, `assets/data/proposals.json`, `js/pages/admin-platform-dashboard.js`, `pages/admin-platform-dashboard.html`.
+
+**Kết quả:** Tabs/badge đúng, biểu đồ vẽ đúng, `?fail=1` hiển thị lỗi, `btnRetry` load lại, multi-tab reactive hoạt động.
+
+**Minh chứng:** Commit `feat: add responsive dashboard layout`, PR #15.
+
+---
+
+### Task D12: Queue duyệt/từ chối/bulk + seller validate
+
+**Yêu cầu:** Duyệt/từ chối hàng loạt + validate form đăng ký gian hàng.
+
+**Mã nguồn liên quan:** `js/pages/seller-register.js`, `pages/seller-register.html` (thêm `<script>`), `js/pages/moderator-moderation-queue.js` (cập nhật bulk).
+
+**Kết quả:** Validation lỗi hiển thị đúng, flow thành công hiển thị "Đăng ký thành công!", bulk approve cập nhật đúng số lượng.
+
+**Minh chứng:** Commit `feat: approve listings and validate seller form`, PR #16.
+
+---
+
+### Task D13: Auth Guard login/403
+
+**Yêu cầu:** Kiểm soát truy cập client-side: chưa đăng nhập → login, sai vai trò → 403.
+
+**Mã nguồn liên quan:** `js/modules/guard.js`, `pages/403.html`.
+
+**Kết quả:** Chặn truy cập trái phép, redirect đúng, toast lỗi.
+
+**Minh chứng:** Commit `feat: add role guard and 403 redirect`, PR #17.
+
+---
+
+### Task D13a: Category CRUD + Archive
+
+**Yêu cầu:** CRUD danh mục, thay xóa bằng Archive (soft delete).
+
+**Mã nguồn liên quan:** `js/pages/admin-category-management.js`, `pages/admin-category-management.html`.
+
+**Kết quả:** CRUD hoạt động, Archive, slug đúng.
+
+**Minh chứng:** Commit `feat: add category crud with archive`, PR #18.
+
+---
+
+### Task D13b: Guidelines CRUD JS
+
+**Yêu cầu:** CRUD hướng dẫn nội dung.
+
+**Mã nguồn liên quan:** `js/pages/moderator-content-guidelines.js`, `pages/moderator-content-guidelines.html`.
+
+**Kết quả:** CRUD hoạt động, zero-state hiển thị đúng.
+
+**Minh chứng:** Commit `feat: add guidelines crud js`, PR #19.
+
+---
+
+### Task Fix CSS utils + toast
+
+**Yêu cầu:** Bổ sung class CSS thiếu và module toast.
+
+**Mã nguồn liên quan:** `css/components/style.css`.
+
+**Kết quả:** Không còn class Missing, toast hiển thị đúng trạng thái khi người dùng bấm nút.
+
+**Minh chứng:** Commit `style: add missing css utilities`, PR #20.
+
+---
+
+### Task Docs: Readme + báo cáo
+
+**Yêu cầu:** Tạo giới thiệu dự án và báo cáo.
+
+**Mã nguồn liên quan:** `docs/BAO-CAO-CA-NHAN-SANG-SV3.md`, `docs/BAO-CAO-TONG-QUAN-DU-AN.md`.
+
+**Kết quả:** Tài liệu đầy đủ, đúng mẫu BTL-11.
+
+**Minh chứng:** Commit `docs: add readme.md and baocao`, PR #21.
+
+---
+
+## 3. KIỂM THỬ VÀ CÁC LỖI ĐÃ KHẮC PHỤC
+
+| Lỗi phát hiện                                            | Trang ảnh hưởng                       | Cách khắc phục                                                | Kết quả                |
+| -------------------------------------------------------- | ------------------------------------- | ------------------------------------------------------------- | ---------------------- |
+| Thiếu `[hidden] { display:none !important }`             | Modal hiển thị dù có `hidden`         | Thêm rule `[hidden]` trong `style.css`                        | ✅ Modal ẩn đúng       |
+| Thiếu `.u-fw500`                                         | HTML dùng class không có trong CSS    | Thêm utility vào `components/style.css`                       | ✅ Class tồn tại       |
+| `.tabs` thiếu `overflow-x:auto`                          | Tabs vỡ dòng ở mobile                 | Thêm `overflow-x:auto` + `.tab white-space:nowrap`            | ✅ Tabs không vỡ       |
+| `.btn-sm` trong CSS vs `btn--sm` trong HTML              | Nút to sai cỡ                         | Quy ước modifier 2 gạch, grep toàn repo                       | ✅ Nhất quán           |
+| `responsive.css` thiếu `.plans`                          | 3 thẻ gói cắt mất ở mobile            | Thêm `.plans` vào breakpoint                                  | ✅ 3 thẻ hiển thị đủ   |
+| `dashboard` không render dữ liệu động                    | Con số không đổi khi duyệt ở tab khác | Thêm `window.addEventListener("storage", ...)`                | ✅ Re-render real-time |
+| `dashboard` hiển thị lỗi `Cannot set properties of null` | Thiếu `id="stats"`, `id="revBars"`... | Thêm `id` vào thẻ HTML, thay `#catBars` thành container trống | ✅ Render đúng         |
+| `listings.json` của Sáng vs Sơn trùng tên                | Xung đột file                         | Sáng tự tạo `listings.json` riêng, không đụng file Sơn        | ✅ Không xung đột      |
+
+---
+
+## 4. TỰ ĐÁNH GIÁ KIẾN THỨC HTML, CSS, JAVASCRIPT ĐÃ SỬ DỤNG
+
+### HTML
+
+- Ngữ nghĩa: `<nav>`, `<main>`, `<footer>`, `<section>`, `<article>`, `<table>`, `<form>`, `<input>`, `<button>`, `<modal>`.
+- Accessibility: `aria-label`, `role="tablist"`, `role="tab"`, `aria-modal`, `hidden`.
+- Tất cả trang có `<meta charset="UTF-8">`, `<meta name="viewport">`, link CSS/JS đúng đường dẫn.
+
+### CSS
+
+- Phân tầng 3 lớp: `base.css` (tokens + reset), `components/style.css` (components dùng chung), `pages/<trang>.css` (style riêng).
+- Quy ước class: Modifier 2 gạch (`.btn--primary`), Utility 1 gạch tiền tố `u-` (`.u-mb16`).
+- Responsive: breakpoints 1024px / 900px / 600px, mobile 390px, bottom-nav.
+- Không có comment trong code.
+
+### JavaScript
+
+- Thuần JS, không framework.
+- Module hóa: `guard.js`, `escape module trong file`.
+- Page JS: `moderator-moderation-queue.js`, `moderator-report-center.js`, `admin-user-management.js`, `admin-platform-dashboard.js`, `seller-register.js`, `admin-category-management.js`, `moderator-content-guidelines.js`.
+- Xử lý sự kiện: click, change, input, storage (multi-tab reactive).
+- LocalStorage: `craftlink_listings_v1`, `craftlink_reports_v1`, `craftlink_users_v1`, `craftlink_session_v1`, `craftlink_seller_v1`.
+- Fetch JSON: `../assets/data/listings.json`, `reports.json`, `users.json`, `orders.json`, `briefs.json`, `proposals.json`.
+- Validate: email, phone `/^0\d{9}$/`, tên, địa chỉ.
+
+---
+
+## 5. PHỤ LỤC: ẢNH GIAO DIỆN, ĐƯỜNG DẪN TỆP VÀ COMMIT GIT
+
+### 5.1. Danh sách tệp chính do Sáng thực hiện
+
+| Loại            | Đường dẫn                                                                                                                                                                                                                                                                        |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| HTML (7 trang)  | `pages/moderator-content-guidelines.html`, `pages/moderator-report-center.html`, `pages/admin-category-management.html`, `pages/moderator-moderation-queue.html`, `pages/admin-user-management.html`, `pages/seller-register.html`, `pages/admin-platform-dashboard.html`        |
+| JS (7 trang)    | `js/pages/moderator-content-guidelines.js`, `js/pages/moderator-report-center.js`, `js/pages/admin-category-management.js`, `js/pages/moderator-moderation-queue.js`, `js/pages/admin-user-management.js`, `js/pages/seller-register.js`, `js/pages/admin-platform-dashboard.js` |
+| CSS (per trang) | `css/pages/guidelines.css`, `css/pages/reports.css`, `css/pages/category.css`, `css/pages/queue.css`, `css/pages/users.css`, `css/pages/seller.css`, `css/pages/dashboard.css`                                                                                                   |
+| CSS chung       | `css/base/base.css`, `css/components/style.css`                                                                                                                                                                                                                                  |
+| JSON data       | `assets/data/listings.json`, `assets/data/reports.json`, `assets/data/users.json`, `assets/data/orders.json`, `assets/data/briefs.json`, `assets/data/proposals.json`                                                                                                            |
+| Module chung    | `js/modules/guard.js`                                                                                                                                                                                                                                                            |
+| HTML lỗi        | `pages/403.html`                                                                                                                                                                                                                                                                 |
+| Tài liệu        | `docs/BAO-CAO-CA-NHAN-SANG-SV3.md`, `docs/BAO-CAO-TONG-QUAN-DU-AN.md`,                                                                                                                                                                                                           |
+
+### 5.2. Danh sách commit Git (mã nhánh + message)
+
+| Mã commit                                                                  | Nhánh                                      | Message | PR  |
+| -------------------------------------------------------------------------- | ------------------------------------------ | ------- | --- |
+| `docs: init board and dev branch`                                          | `feature/quangsang-d01-board-figma`        | D1      | #1  |
+| `feat: add guidelines page html`                                           | `feature/quangsang-d02-guidelines-html`    | D2      | #2  |
+| `feat: add report center html`                                             | `feature/quangsang-d03-reports-html`       | D3      | #3  |
+| `feat: add category page html`                                             | `feature/quangsang-d04-category-html`      | D4      | #4  |
+| `feat: add moderation queue html`                                          | `feature/quangsang-d05-queue-html`         | D5      | #5  |
+| `feat: add user page html`                                                 | `feature/quangsang-d06-users-html`         | D6      | #6  |
+| `feat: add seller register html`                                           | `feature/quangsang-d06-seller-html`        | D6      | #7  |
+| `chore: update footer copyright...` + `refactor: split css...`             | `chores/quangsang-global-admin-allpage`    | —       | #8  |
+| `feat: add dashboard page html`                                            | `feature/quangsang-d07-dashboard-html`     | D7      | #9  |
+| `fix: correct admin page structure...` + `style: add mobile bottom nav...` | `fix/quangsang-admin-structure-responsive` | —       | #11 |
+| `feat: render queue from mock json`                                        | `feature/quangsang-d08-queue-render`       | D8      | #12 |
+| `feat: add report status filter`                                           | `feature/quangsang-d09-report-filter`      | D9      | #13 |
+| `feat: lock unlock user account`                                           | `feature/quangsang-d10-user-lock`          | D10     | #14 |
+| `feat: add responsive dashboard layout`                                    | `feature/quangsang-d11-dashboard-stats`    | D11     | #15 |
+| `feat: approve listings and validate seller form`                          | `feature/quangsang-d12-moderate-seller`    | D12     | #16 |
+| `feat: add role guard and 403 redirect`                                    | `feature/quangsang-d13-auth-guard`         | D13     | #17 |
+| `feat: add category crud with archive`                                     | `feature/quangsang-d13a-category-crud`     | D13a    | #18 |
+| `feat: add guidelines crud js`                                             | `feature/quangsang-d13b-guidelines-crud`   | D13b    | #19 |
+| `style: add missing css utilities`                                         | `feature/quangsang-fix-css-utils`          | Fix     | #20 |
+| `docs: add readme.md and baocao`                                           | `docs/add-readme-introduce`                | Docs    | #21 |
+
+### 5.3. Ảnh giao diện (mockup)
+
+| Màn hình           | File mockup                          |
+| ------------------ | ------------------------------------ |
+| Hướng dẫn nội dung | `design/mockups/content-guide.png`   |
+| Trung tâm báo cáo  | `design/mockups/report-center.png`   |
+| Quản lý danh mục   | `design/mockups/admin-category.png`  |
+| Hàng chờ duyệt     | `design/mockups/queue.png`           |
+| Quản lý người dùng | `design/mockups/user-management.png` |
+| Bảng điều khiển    | `design/mockups/admin-dashboard.png` |
+| Đăng ký gian hàng  | `design/mockups/seller-register.png` |
+
+**Tất cả commit đã push lên `origin/dev` và merge vào `dev`. `dev` đang up-to-date với `origin/dev`, working tree clean.**
+
+---
