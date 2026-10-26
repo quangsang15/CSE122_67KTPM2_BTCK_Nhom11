@@ -1,5 +1,5 @@
 (() => {
-  Guard.require("admin");
+  Guard.require("moderator", "admin");
   const $ = (id) => document.getElementById(id);
   let cats = [];
   let listings = [];
