@@ -1,0 +1,24 @@
+.auth-wrap {
+  min-height: calc(100vh - 160px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+}
+.auth-box {
+  width: 100%;
+  max-width: 400px;
+}
+.auth-box.wide {
+  max-width: 420px;
+}
+.auth-head {
+  text-align: center;
+  margin-bottom: 32px;
+}
+.auth-head .logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+}

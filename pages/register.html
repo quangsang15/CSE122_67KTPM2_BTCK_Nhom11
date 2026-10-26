@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Đăng ký — CraftLink</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+  <link rel="stylesheet" href="../css/base/base.css" />
+  <link rel="stylesheet" href="../css/components/style.css" />
+  <link rel="stylesheet" href="../css/pages/auth.css" />
+
+</head>
+<body>
+<div class="app-layout">
+  <nav class="top-nav" aria-label="Điều hướng chính">
+    <div class="top-nav-inner">
+      <a href="../index.html" class="nav-logo">CraftLink</a>
+      <div class="nav-links">
+        <a href="../index.html" class="nav-link">Trang chủ</a>
+        <a href="buyer-marketplace.html" class="nav-link">Dạo chợ</a>
+        <a href="buyer-orders.html" class="nav-link">Đơn hàng</a>
+        <a href="maker-brief-inbox.html" class="nav-link">Gian hàng</a>
+      </div>
+      <div class="nav-actions">
+        <a href="notifications.html" class="btn btn--sm" aria-label="Thông báo">🔔</a>
+        <a href="profile.html" class="btn btn--sm"><span class="nav-user">Tài khoản</span></a>
+      </div>
+    </div>
+  </nav>
+  <main class="main-content auth-wrap">
+    <div class="auth-box wide">
+      <div class="auth-head">
+        <a href="../index.html" class="logo">CraftLink</a>
+        <h1 class="auth-title">Tạo tài khoản</h1>
+        <p class="muted">Tham gia cộng đồng thủ công Việt Nam</p>
+      </div>
+      <div class="card">
+        <form id="regForm" novalidate>
+          <div class="field"><label class="lbl" for="name">Họ và tên <span class="req">*</span></label>
+            <input class="input" id="name" placeholder="Nguyễn Văn A" autocomplete="name" />
+            <p class="form-err" id="nameErr" hidden></p>
+          </div>
+          <div class="field"><label class="lbl" for="email">Email <span class="req">*</span></label>
+            <input class="input" id="email" type="email" placeholder="ban@email.com" autocomplete="email" />
+            <p class="form-err" id="emailErr" hidden></p>
+          </div>
+          <div class="field"><label class="lbl" for="pw">Mật khẩu <span class="req">*</span></label>
+            <input class="input" id="pw" type="password" placeholder="Ít nhất 6 ký tự" autocomplete="new-password" />
+            <p class="form-err" id="pwErr" hidden></p>
+          </div>
+          <div class="field"><label class="lbl" for="role">Vai trò</label>
+            <select class="input" id="role"><option value="buyer">Người mua</option><option value="maker">Thợ thủ công</option></select>
+          </div>
+          <button class="btn btn--primary btn--block form-cta" id="btnReg" type="submit">Đăng ký</button>
+        </form>
+        <p class="auth-alt">
+          Đã có tài khoản? <a href="login.html">Đăng nhập</a>
+        </p>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../js/api.js"></script>
+<script src="../js/modules/ui-state.js"></script>
+<script src="../js/pages/register.js"></script>
+</body>
+</html>
