@@ -1,12 +1,88 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <h1>Welcome to CraftLinks</h1>
-    <a href="./pages/admin-category-management.html">Test</a>
-  </body>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CraftLink — Kết nối người mua với thợ thủ công</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/base/base.css" />
+  <link rel="stylesheet" href="css/components/style.css" />
+  <link rel="stylesheet" href="css/pages/index.css" />
+</head>
+<body>
+<div class="app-layout">
+  <nav class="top-nav" aria-label="Điều hướng chính">
+    <div class="top-nav-inner">
+      <a href="index.html" class="nav-logo">CraftLink</a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link active">Trang chủ</a>
+        <a href="pages/buyer-marketplace.html" class="nav-link">Dạo chợ</a>
+        <a href="pages/buyer-orders.html" class="nav-link">Đơn hàng</a>
+        <a href="pages/maker-brief-inbox.html" class="nav-link">Gian hàng</a>
+      </div>
+      <div class="nav-actions">
+        <a href="pages/notifications.html" class="btn btn--sm" aria-label="Thông báo">🔔</a>
+        <a href="pages/profile.html" class="btn btn--sm"><span id="navUser" class="nav-user">Tài khoản</span></a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main-content">
+    <div class="container">
+      <section class="hero">
+        <p class="kicker">Nền tảng thủ công Việt Nam</p>
+        <h1>Kết nối người mua<br />với thợ thủ công tài năng</h1>
+        <p>Tìm kiếm, đặt hàng và nhận sản phẩm thủ công độc đáo từ những nghệ nhân tốt nhất Việt Nam.</p>
+        <div class="row">
+          <a href="pages/buyer-marketplace.html" class="btn btn--hero-solid">Dạo chợ ngay</a>
+          <a href="pages/buyer-custom-brief.html" class="btn btn--hero-ghost">Đặt hàng riêng</a>
+        </div>
+      </section>
+
+      <section class="stat-grid" aria-label="Con số nổi bật">
+        <div class="stat stat-center"><b class="stat-num">2,400+</b><small>Nghệ nhân</small></div>
+        <div class="stat stat-center"><b class="stat-num">18,000+</b><small>Sản phẩm</small></div>
+        <div class="stat stat-center"><b class="stat-num">97%</b><small>Hài lòng</small></div>
+        <div class="stat stat-center"><b class="stat-num">45k+</b><small>Đơn hoàn thành</small></div>
+      </section>
+
+      <section class="section-gap">
+        <h2 class="u-mb16">Danh mục phổ biến</h2>
+        <div class="pills" id="catPills" role="group" aria-label="Danh mục phổ biến"></div>
+      </section>
+
+      <section class="section-gap">
+        <div class="page-head-row u-mb16">
+          <h2>Nghệ nhân nổi bật</h2>
+          <a href="pages/buyer-marketplace.html" class="auth-link">Xem tất cả →</a>
+        </div>
+        <div class="card-grid" id="makerGrid"></div>
+      </section>
+
+      <section class="card cta-band">
+        <h2 class="u-mb8">Bạn là thợ thủ công?</h2>
+        <p class="muted u-mb20">Mở gian hàng miễn phí trong 30 giây và tiếp cận hàng ngàn khách hàng tiềm năng.</p>
+        <a href="pages/seller-register.html" class="btn btn--primary">Mở gian hàng ngay</a>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div><h4>Mua</h4><a href="pages/buyer-marketplace.html">Dạo chợ</a><a href="pages/buyer-custom-brief.html">Đặt riêng</a><a href="pages/buyer-orders.html">Đơn hàng</a></div>
+      <div><h4>Bán</h4><a href="pages/maker-listing-management.html">Quản lý sản phẩm</a><a href="pages/maker-brief-inbox.html">Hộp thư brief</a><a href="pages/maker-proposal-editor.html">Đề xuất</a><a href="pages/seller-register.html">Mở gian hàng</a></div>
+      <div><h4>Duyệt &amp; quản trị</h4><a href="pages/moderator-moderation-queue.html">Hàng chờ duyệt</a><a href="pages/moderator-report-center.html">Trung tâm báo cáo</a><a href="pages/moderator-content-guidelines.html">Hướng dẫn nội dung</a><a href="pages/admin-platform-dashboard.html">Dashboard Admin</a></div>
+      <div><h4>Tài khoản</h4><a href="pages/profile.html">Hồ sơ</a><a href="pages/settings.html">Cài đặt</a><a href="pages/notifications.html">Thông báo</a><a href="pages/login.html">Đăng nhập</a></div>
+    </div>
+    <div class="footer-bottom">© 2025 CraftLink. Nền tảng kết nối người mua và thợ thủ công.</div>
+  </footer>
+</div>
+
+<script src="js/modules/escape.js"></script>
+<script src="js/api.js"></script>
+<script src="js/modules/ui-state.js"></script>
+<script src="js/modules/bottom-nav.js"></script>
+<script src="js/pages/index.js"></script>
+</body>
 </html>
