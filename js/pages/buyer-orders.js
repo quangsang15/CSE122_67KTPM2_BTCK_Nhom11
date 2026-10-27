@@ -1,5 +1,4 @@
-// Đơn hàng của tôi — js/pages/buyer-orders.js — procedural, tách từ pages/buyer-orders.html
-  // Đơn hàng (SV1 Huy): tabs lọc + hủy đơn + AI-3 tóm tắt góp ý.
+
   const $ = (id) => document.getElementById(id);
   const TABS = [["all", "Tất cả"], ["pending", "Chờ xử lý"], ["making", "Đang làm"], ["revision", "Yêu cầu sửa"], ["done", "Hoàn thành"], ["cancelled", "Đã hủy"]];
   let tab = "all", orders = [], revisions = [], proposals = [], briefs = [], users = [];

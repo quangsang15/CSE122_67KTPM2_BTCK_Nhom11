@@ -1,5 +1,4 @@
-// Đặt hàng riêng — js/pages/buyer-custom-brief.js — procedural, tách từ pages/buyer-custom-brief.html
-  // Đặt riêng (SV1 Huy): nhập → AI-1 tạo brief → chấp nhận/sửa/từ chối/tạo lại/lưu.
+
   const $ = (id) => document.getElementById(id);
   let current = null;
   try {

@@ -1,5 +1,4 @@
-// Trang chủ — tách từ index.html
-  // Trang chủ (SV1 Huy): session + pills danh mục + makers nổi bật.
+
   const $ = (id) => document.getElementById(id);
   const MAKERS = [
     { name: "Nguyên Minh", skill: "Thư pháp & Calligraphy", rating: 4.9, orders: 128, av: "NM" },
@@ -24,3 +23,5 @@
       "<a class='pill pill-link' href='pages/buyer-marketplace.html?cat=" + encodeURIComponent(c.name) + "'>" + escapeHTML(c.name) + "</a>"
     ).join("");
   }).catch(() => {});
+
+  
